@@ -3,9 +3,20 @@ export const site = {
   shortName: "Winter Post",
   claim: "Dein Winter. Dein Treffpunkt.",
   tagline: "Glühwein, Genuss & Weihnachtszauber",
+  title: "Winter Post Solothurn | Glühwein, Genuss & Weihnachtszauber",
+  // Für Google & Social Media (max. ca. 155 Zeichen)
   description:
-    "Winter Post Solothurn: dein neuer Wintertreffpunkt auf dem Alter Postplatz. Ein Winter-Pop-up mit Holzhütten, Licht und Tannen: Glühwein, heisse Schokolade, Raclettebrot, Grillwurst und Risotto. Vom 27. November 2026 bis 3. Januar 2027, täglich von 11 bis 22 Uhr.",
-  url: "https://www.winterpost.ch",
+    "Dein Winter-Treffpunkt auf dem Alten Postplatz in Solothurn: Glühwein, Raclette & Winterküche. 27.11.2026 – 3.1.2027, täglich 11–22 Uhr.",
+  shareDescription:
+    "Glühwein, Raclette & Weihnachtszauber auf dem Alten Postplatz. 27.11.2026 – 3.1.2027, täglich 11–22 Uhr. Wir sehen uns!",
+  // Produktions-Domain. Auf Vercel wird automatisch die Produktions-Domain verwendet,
+  // falls NEXT_PUBLIC_SITE_URL nicht gesetzt ist.
+  url: (
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "https://winterpost.ch")
+  ).replace(/\/$/, ""),
   email: "kontakt@winterpost.ch",
   phone: "+41 76 747 44 10",
   phoneHref: "tel:+41767474410",

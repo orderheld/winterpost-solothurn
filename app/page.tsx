@@ -35,34 +35,73 @@ const tickerWords = [
 ];
 
 function JsonLd() {
-  const data = {
-    "@context": "https://schema.org",
-    "@type": "FoodEstablishment",
-    name: site.name,
-    slogan: site.claim,
-    description: site.description,
-    url: site.url,
-    email: site.email,
-    telephone: site.phone.replace(/\s/g, ""),
-    image: `${site.url}/images/poster.jpg`,
-    logo: `${site.url}/images/logo-stempel.png`,
-    servesCuisine: ["Glühwein", "Raclette", "Schweizer Winterküche"],
-    sameAs: [site.instagram],
+  const place = {
+    "@type": "Place",
+    name: `${site.address.street}, ${site.address.city}`,
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.street,
       postalCode: site.address.zip,
       addressLocality: site.address.city,
+      addressRegion: "SO",
       addressCountry: site.address.country,
     },
-    openingHoursSpecification: [
+  };
+  const images = [
+    `${site.url}/opengraph-image.jpg`,
+    `${site.url}/images/ort/vogelperspektive.jpg`,
+    `${site.url}/images/poster.jpg`,
+  ];
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [
       {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        opens: "11:00",
-        closes: "22:00",
-        validFrom: "2026-11-27",
-        validThrough: "2027-01-03",
+        "@type": "WebSite",
+        "@id": `${site.url}/#website`,
+        url: site.url,
+        name: site.name,
+        inLanguage: "de-CH",
+      },
+      {
+        "@type": "FoodEstablishment",
+        "@id": `${site.url}/#betrieb`,
+        name: site.name,
+        slogan: site.claim,
+        description: site.description,
+        url: site.url,
+        email: site.email,
+        telephone: site.phone.replace(/\s/g, ""),
+        image: images,
+        logo: `${site.url}/icon-512.png`,
+        servesCuisine: ["Glühwein", "Raclette", "Schweizer Winterküche"],
+        acceptsReservations: false,
+        sameAs: [site.instagram],
+        address: place.address,
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            opens: "11:00",
+            closes: "22:00",
+            validFrom: "2026-11-27",
+            validThrough: "2027-01-03",
+          },
+        ],
+      },
+      {
+        "@type": "Event",
+        "@id": `${site.url}/#event`,
+        name: `${site.name}: ${site.claim}`,
+        description: site.description,
+        startDate: "2026-11-27T11:00:00+01:00",
+        endDate: "2027-01-03T22:00:00+01:00",
+        eventStatus: "https://schema.org/EventScheduled",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        isAccessibleForFree: true,
+        image: images,
+        location: place,
+        organizer: { "@id": `${site.url}/#betrieb` },
+        url: site.url,
       },
     ],
   };
@@ -141,7 +180,7 @@ export default function Home() {
                     width={1290}
                     height={1601}
                     priority
-                    sizes="(max-width: 900px) 80vw, 460px"
+                    sizes="(max-width: 900px) 320px, 440px"
                   />
                 </figure>
                 <div className="ring-stamp" aria-hidden="true">
@@ -225,7 +264,7 @@ export default function Home() {
                   <span className="feature__icon"><Pin /></span>
                   <div>
                     <h3>Ein kleines Winterdorf</h3>
-                    <p>Holzhütten, Lichterketten, Tannen und gemütliche Lounge-Bereiche auf dem Alter Postplatz.</p>
+                    <p>Holzhütten, Lichterketten, Tannen und gemütliche Lounge-Bereiche auf dem Alten Postplatz.</p>
                   </div>
                 </li>
                 <li className="feature">
