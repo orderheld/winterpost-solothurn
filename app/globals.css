@@ -1633,3 +1633,89 @@ body > .airmail-bar {
     padding: 1.4rem 1.2rem;
   }
 }
+
+/* =========================================================
+   Sprachumschalter
+   ========================================================= */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.langs {
+  list-style: none;
+  display: flex;
+  gap: 2px;
+  margin: 0;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgb(251 243 226 / 0.08);
+  border: 1px solid rgb(251 243 226 / 0.16);
+}
+.langs a {
+  display: block;
+  min-width: 2.3rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 999px;
+  text-align: center;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgb(251 243 226 / 0.75);
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.langs a:hover {
+  color: var(--cream);
+  background: rgb(251 243 226 / 0.1);
+}
+.langs a[aria-current="page"] {
+  background: var(--cream);
+  color: var(--navy);
+}
+.footer__langs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+.footer__langs a[aria-current="page"] {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+@media (max-width: 1240px) {
+  .header__cta {
+    display: none;
+  }
+}
+@media (max-width: 1100px) and (min-width: 901px) {
+  .nav__list {
+    gap: 1rem;
+  }
+  .nav__list a {
+    font-size: 0.95rem;
+  }
+  .nav {
+    gap: 1rem;
+  }
+}
+@media (max-width: 900px) {
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+  }
+  .langs--menu {
+    align-self: flex-start;
+  }
+  .langs--menu a {
+    min-width: 3rem;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.95rem;
+  }
+}

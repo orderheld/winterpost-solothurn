@@ -14,6 +14,21 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
+  // Deutsch ist die Hauptsprache und liegt direkt unter "/".
+  // Intern wird "/" auf die Route "/de" umgeschrieben; "/de" selbst leitet auf "/" weiter.
+  async rewrites() {
+    return {
+      beforeFiles: [{ source: "/", destination: "/de" }],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
+  async redirects() {
+    return [{ source: "/de", destination: "/", permanent: true }];
+  },
+  experimental: {
+    globalNotFound: true,
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

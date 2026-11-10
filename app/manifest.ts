@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
+import { getDict } from "@/lib/i18n";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: site.name,
     short_name: site.shortName,
-    description: site.description,
+    description: getDict("de").meta.description,
     lang: "de-CH",
     start_url: "/",
     display: "standalone",

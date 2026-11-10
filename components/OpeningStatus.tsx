@@ -2,12 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
+import type { Dict } from "@/lib/i18n";
+
+type Labels = Dict["status"];
 
 type State =
   | { kind: "loading" }
   | { kind: "countdown"; d: number; h: number; m: number; s: number }
   | { kind: "open"; until: string }
-  | { kind: "closed"; next: string }
+  | { kind: "closed"; tomorrow: boolean }
   | { kind: "over" };
 
 function zurichHour(now: Date) {
@@ -42,15 +45,12 @@ function compute(now: Date): State {
   if (hour >= site.hours.open && hour < site.hours.close) {
     return { kind: "open", until: `${site.hours.close}:00` };
   }
-  return {
-    kind: "closed",
-    next: hour < site.hours.open ? `heute ab ${site.hours.open}:00 Uhr` : `morgen ab ${site.hours.open}:00 Uhr`,
-  };
+  return { kind: "closed", tomorrow: hour >= site.hours.open };
 }
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
-export default function OpeningStatus() {
+export default function OpeningStatus({ labels }: { labels: Labels }) {
   const [state, setState] = useState<State>({ kind: "loading" });
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export default function OpeningStatus() {
     return (
       <p className="status status--open" role="status">
         <span className="status__dot" aria-hidden="true" />
-        Jetzt geöffnet, bis {state.until} Uhr
+        {labels.open.replace("{time}", state.until)}
       </p>
     );
   }
@@ -73,7 +73,7 @@ export default function OpeningStatus() {
     return (
       <p className="status" role="status">
         <span className="status__dot status__dot--off" aria-hidden="true" />
-        Danke für eine wunderbare Wintersaison! Bis zum nächsten Winter.
+        {labels.over}
       </p>
     );
   }
@@ -82,7 +82,10 @@ export default function OpeningStatus() {
     return (
       <p className="status" role="status">
         <span className="status__dot status__dot--off" aria-hidden="true" />
-        Gerade geschlossen. Wir sind {state.next} wieder für dich da.
+        {(state.tomorrow ? labels.closedTomorrow : labels.closedToday).replace(
+          "{time}",
+          `${site.hours.open}:00`,
+        )}
       </p>
     );
   }
@@ -90,24 +93,24 @@ export default function OpeningStatus() {
   const units =
     state.kind === "countdown"
       ? [
-          { v: state.d, l: state.d === 1 ? "Tag" : "Tage" },
-          { v: state.h, l: "Std." },
-          { v: state.m, l: "Min." },
-          { v: state.s, l: "Sek." },
+          { k: "d", v: state.d, l: state.d === 1 ? labels.day : labels.days },
+          { k: "h", v: state.h, l: labels.hours },
+          { k: "m", v: state.m, l: labels.minutes },
+          { k: "s", v: state.s, l: labels.seconds },
         ]
       : [
-          { v: null, l: "Tage" },
-          { v: null, l: "Std." },
-          { v: null, l: "Min." },
-          { v: null, l: "Sek." },
+          { k: "d", v: null, l: labels.days },
+          { k: "h", v: null, l: labels.hours },
+          { k: "m", v: null, l: labels.minutes },
+          { k: "s", v: null, l: labels.seconds },
         ];
 
   return (
-    <div className="countdown" aria-label="Countdown bis zur Eröffnung">
-      <p className="countdown__label">Noch bis zur Eröffnung</p>
+    <div className="countdown" aria-label={labels.countdownAria}>
+      <p className="countdown__label">{labels.countdownLabel}</p>
       <ol className="countdown__grid">
         {units.map((u) => (
-          <li key={u.l} className="countdown__unit">
+          <li key={u.k} className="countdown__unit">
             <span className="countdown__value" suppressHydrationWarning>
               {u.v === null ? "--" : pad(u.v)}
             </span>

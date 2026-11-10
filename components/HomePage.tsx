@@ -3,38 +3,17 @@ import Header from "@/components/Header";
 import OpeningStatus from "@/components/OpeningStatus";
 import Snow from "@/components/Snow";
 import { Arrow, Calendar, Clock, Instagram, Mail, Pin, Snowflake } from "@/components/Icons";
-import { menu, site } from "@/lib/site";
+import { galleryImages, menuImages, site } from "@/lib/site";
+import { getDict, localeInfo, locales, type Locale } from "@/lib/i18n";
 
-const gallery = [
-  {
-    src: "/images/ort/vogelperspektive.jpg",
-    alt: "Visualisierung der Winter Post aus der Vogelperspektive: Holzhütten, Schirme, Zelt, Tannen mit Lichterketten und Sitzplätze",
-    caption: "Das Winterdorf aus der Vogelperspektive",
-  },
-  {
-    src: "/images/ort/bar.jpg",
-    alt: "Visualisierung der Bar-Hütte mit Lichterketten, Tannenbaum und Gästen am Abend",
-    caption: "Bar und Küche in den Holzhütten",
-  },
-  {
-    src: "/images/ort/lounge.jpg",
-    alt: "Visualisierung der Lounge mit Sitzplätzen auf Holzstämmen zwischen beleuchteten Tannen",
-    caption: "Winter-Lounge unter Lichterketten",
-  },
-];
+function pageUrl(lang: Locale) {
+  const path = localeInfo[lang].path;
+  return path === "/" ? `${site.url}/` : `${site.url}${path}`;
+}
 
-const tickerWords = [
-  "Glühwein",
-  "Heisse Schokolade",
-  "Raclettebrot",
-  "Grillwurst",
-  "Pilzrisotto",
-  "Punsch",
-  "Weihnachtszauber",
-  "Alter Postplatz",
-];
-
-function JsonLd() {
+function JsonLd({ lang }: { lang: Locale }) {
+  const t = getDict(lang);
+  const url = pageUrl(lang);
   const place = {
     "@type": "Place",
     name: `${site.address.street}, ${site.address.city}`,
@@ -48,7 +27,7 @@ function JsonLd() {
     },
   };
   const images = [
-    `${site.url}/opengraph-image.jpg`,
+    `${site.url}/og-image.jpg`,
     `${site.url}/images/ort/vogelperspektive.jpg`,
     `${site.url}/images/poster.jpg`,
   ];
@@ -58,21 +37,30 @@ function JsonLd() {
       {
         "@type": "WebSite",
         "@id": `${site.url}/#website`,
-        url: site.url,
+        url: `${site.url}/`,
         name: site.name,
-        inLanguage: "de-CH",
+        inLanguage: locales.map((l) => localeInfo[l].htmlLang),
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: t.meta.title,
+        description: t.meta.description,
+        inLanguage: localeInfo[lang].htmlLang,
+        isPartOf: { "@id": `${site.url}/#website` },
       },
       {
         "@type": "FoodEstablishment",
         "@id": `${site.url}/#betrieb`,
         name: site.name,
-        slogan: site.claim,
-        description: site.description,
-        url: site.url,
+        slogan: t.claim,
+        description: t.meta.description,
+        url,
         email: site.email,
         image: images,
         logo: `${site.url}/icon-512.png`,
-        servesCuisine: ["Glühwein", "Raclette", "Schweizer Winterküche"],
+        servesCuisine: ["Glühwein", "Raclette", "Swiss winter food"],
         acceptsReservations: false,
         sameAs: [site.instagram],
         address: place.address,
@@ -89,9 +77,10 @@ function JsonLd() {
       },
       {
         "@type": "Event",
-        "@id": `${site.url}/#event`,
-        name: `${site.name}: ${site.claim}`,
-        description: site.description,
+        "@id": `${url}#event`,
+        name: `${site.name}: ${t.claim}`,
+        description: t.meta.description,
+        inLanguage: localeInfo[lang].htmlLang,
         startDate: "2026-11-27T11:00:00+01:00",
         endDate: "2027-01-03T22:00:00+01:00",
         eventStatus: "https://schema.org/EventScheduled",
@@ -100,7 +89,7 @@ function JsonLd() {
         image: images,
         location: place,
         organizer: { "@id": `${site.url}/#betrieb` },
-        url: site.url,
+        url,
       },
     ],
   };
@@ -112,15 +101,24 @@ function JsonLd() {
   );
 }
 
-export default function Home() {
+export default function HomePage({ lang }: { lang: Locale }) {
+  const t = getDict(lang);
+  const languages = locales.map((l) => ({
+    code: l,
+    label: localeInfo[l].label,
+    name: localeInfo[l].name,
+    href: localeInfo[l].path,
+    hrefLang: localeInfo[l].htmlLang,
+  }));
+
   return (
     <>
-      <JsonLd />
+      <JsonLd lang={lang} />
       <a href="#inhalt" className="skip-link">
-        Zum Inhalt springen
+        {t.skip}
       </a>
       <div className="airmail-bar" aria-hidden="true" />
-      <Header />
+      <Header nav={t.nav} lang={lang} languages={languages} />
 
       <main id="inhalt">
         {/* ---------- HERO ---------- */}
@@ -131,43 +129,40 @@ export default function Home() {
             <div className="hero__copy">
               <p className="eyebrow eyebrow--light">
                 <Snowflake className="eyebrow__icon" />
-                Alter Postplatz · Solothurn
+                {t.hero.eyebrow}
               </p>
               <h1 className="hero__title">
-                <span>Dein Winter.</span>
-                <span>Dein Treffpunkt.</span>
+                <span>{t.hero.title1}</span>
+                <span>{t.hero.title2}</span>
               </h1>
-              <p className="hero__lead">
-                Glühwein, Genuss &amp; Weihnachtszauber: Dein Winter-Pop-up im Herzen
-                von Solothurn. Komm vorbei, wärm dich auf und triff deine Leute.
-              </p>
+              <p className="hero__lead">{t.hero.lead}</p>
 
               <div className="hero__stamp-row">
                 <p className="rubber-stamp">
-                  <span className="rubber-stamp__small">Ab</span> 27. November 2026
+                  <span className="rubber-stamp__small">{t.hero.stampSmall}</span> {t.hero.stampDate}
                 </p>
                 <div className="hero__facts">
                   <p className="hero__hours">
                     <Clock className="hero__hours-icon" />
-                    Täglich 11:00 – 22:00 Uhr
+                    {t.hero.hours}
                   </p>
                   <p className="hero__hours">
                     <Calendar className="hero__hours-icon" />
-                    Bis 3. Januar 2027
+                    {t.hero.until}
                   </p>
                 </div>
               </div>
 
               <div className="hero__actions">
                 <a href="#angebot" className="btn btn--red">
-                  Zum Angebot <Arrow className="btn__icon" />
+                  {t.hero.ctaMenu} <Arrow className="btn__icon" />
                 </a>
                 <a href={site.mapsUrl} className="btn btn--ghost" target="_blank" rel="noopener noreferrer">
-                  <Pin className="btn__icon" /> Route planen
+                  <Pin className="btn__icon" /> {t.hero.ctaRoute}
                 </a>
               </div>
 
-              <OpeningStatus />
+              <OpeningStatus labels={t.status} />
             </div>
 
             <div className="hero__visual">
@@ -175,7 +170,7 @@ export default function Home() {
                 <figure className="postcard postcard--hero">
                   <Image
                     src="/images/poster.jpg"
-                    alt="Plakat der Winter Post Solothurn: Ab 27. November, Dein Winter Treffpunkt mit Glühwein und Genuss, täglich 11 bis 22 Uhr, Postplatz Solothurn"
+                    alt={t.hero.posterAlt}
                     width={1290}
                     height={1601}
                     priority
@@ -191,7 +186,7 @@ export default function Home() {
                     <circle cx="100" cy="100" r="54" />
                     <text>
                       <textPath href="#ring" startOffset="0" textLength="458" lengthAdjust="spacing">
-                        Eröffnung · 27.11.2026 · Solothurn ·
+                        {t.hero.ring}
                       </textPath>
                     </text>
                   </svg>
@@ -200,7 +195,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <a href="#idee" className="hero__scroll" aria-label="Weiter nach unten">
+          <a href="#idee" className="hero__scroll" aria-label={t.hero.scroll}>
             <span />
           </a>
         </section>
@@ -210,7 +205,7 @@ export default function Home() {
           <div className="ticker__track">
             {[0, 1].map((k) => (
               <div className="ticker__group" key={k}>
-                {tickerWords.map((w) => (
+                {t.ticker.map((w) => (
                   <span key={w + k} className="ticker__item">
                     {w}
                     <Snowflake className="ticker__flake" />
@@ -232,54 +227,30 @@ export default function Home() {
                 height={120}
                 className="letter__postmark"
               />
-              <p className="letter__kicker">Post für dich</p>
-              <h2 className="letter__title">Liebe Solothurnerinnen und Solothurner</h2>
+              <p className="letter__kicker">{t.letter.kicker}</p>
+              <h2 className="letter__title">{t.letter.title}</h2>
               <div className="letter__body">
-                <p>
-                  gerade in den Wintermonaten braucht eine Stadt Orte, die Menschen
-                  zusammenbringen. Die Winter Post ist so ein Ort: offen, einladend und
-                  voller Atmosphäre.
-                </p>
-                <p>
-                  Komm nach der Arbeit auf einen warmen Drink vorbei, iss etwas mit der
-                  Familie oder geniess mit Freunden einen langen Winterabend. Holz, warmes
-                  Licht und Tannen sorgen für Geborgenheit, Glühwein und Raclette für den
-                  Genuss.
-                </p>
-                <p>Ein Ort. Ein Winter. Gemeinsame Momente. Wir freuen uns auf euch!</p>
+                {t.letter.paragraphs.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
               </div>
-              <p className="letter__sign">Eure Winter Post</p>
+              <p className="letter__sign">{t.letter.sign}</p>
             </article>
 
             <div className="idea__side">
-              <p className="eyebrow">Die Idee</p>
-              <h2 className="section-title">Winter in der Stadt. Aber anders.</h2>
-              <p className="section-lead">
-                Kein klassischer Weihnachtsmarkt, sondern ein zeitgemässer Winter-Pop-up:
-                ein Ort zum Ankommen, Verweilen, Essen, Trinken und Zusammensein.
-              </p>
+              <p className="eyebrow">{t.idea.eyebrow}</p>
+              <h2 className="section-title">{t.idea.title}</h2>
+              <p className="section-lead">{t.idea.lead}</p>
               <ul className="features">
-                <li className="feature">
-                  <span className="feature__icon"><Pin /></span>
-                  <div>
-                    <h3>Ein kleines Winterdorf</h3>
-                    <p>Holzhütten, Lichterketten, Tannen und gemütliche Lounge-Bereiche auf dem Alten Postplatz.</p>
-                  </div>
-                </li>
-                <li className="feature">
-                  <span className="feature__icon"><Clock /></span>
-                  <div>
-                    <h3>Jeden Tag für dich da</h3>
-                    <p>Vom 27. November bis 3. Januar, täglich von 11 bis 22 Uhr: zum Zmittag, zum Feierabend oder für einen späten Glühwein.</p>
-                  </div>
-                </li>
-                <li className="feature">
-                  <span className="feature__icon"><Snowflake /></span>
-                  <div>
-                    <h3>Für alle</h3>
-                    <p>Für Solothurnerinnen und Solothurner, Familien, Freunde, Firmen und Gäste der Stadt.</p>
-                  </div>
-                </li>
+                {t.idea.features.map((f, i) => (
+                  <li key={f.t} className="feature">
+                    <span className="feature__icon">{i === 0 ? <Pin /> : i === 1 ? <Clock /> : <Snowflake />}</span>
+                    <div>
+                      <h3>{f.t}</h3>
+                      <p>{f.d}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -290,21 +261,16 @@ export default function Home() {
           <Snow count={22} />
           <div className="container place__inner">
             <header className="section-head section-head--light">
-              <p className="eyebrow eyebrow--light">Der Ort</p>
-              <h2 className="section-title section-title--light">So sieht die Winter Post aus</h2>
-              <p className="section-lead section-lead--light">
-                Mitten in Solothurn entsteht eine stimmungsvolle Winterwelt: Hütten mit
-                Bar und Küche, Sitzplätze auf Holzstämmen, ein Zelt und überall
-                warmes Licht. Schon beim Betreten fühlt es sich an wie ein kleines
-                Winterdorf.
-              </p>
+              <p className="eyebrow eyebrow--light">{t.place.eyebrow}</p>
+              <h2 className="section-title section-title--light">{t.place.title}</h2>
+              <p className="section-lead section-lead--light">{t.place.lead}</p>
             </header>
 
             <div className="gallery">
-              {gallery.map((g, i) => (
-                <figure key={g.src} className={`gallery__item gallery__item--${i + 1}`}>
+              {t.place.gallery.map((g, i) => (
+                <figure key={galleryImages[i]} className={`gallery__item gallery__item--${i + 1}`}>
                   <Image
-                    src={g.src}
+                    src={galleryImages[i]}
                     alt={g.alt}
                     fill
                     sizes={i === 0 ? "(max-width: 900px) 100vw, 66vw" : "(max-width: 900px) 100vw, 33vw"}
@@ -313,7 +279,7 @@ export default function Home() {
                 </figure>
               ))}
             </div>
-            <p className="place__note">Visualisierungen. Die definitive Umsetzung kann im Detail abweichen.</p>
+            <p className="place__note">{t.place.note}</p>
           </div>
         </section>
 
@@ -321,20 +287,17 @@ export default function Home() {
         <section className="section paper paper--alt" id="angebot">
           <div className="container">
             <header className="section-head">
-              <p className="eyebrow">Unser Angebot</p>
-              <h2 className="section-title">Aus der Winterküche</h2>
-              <p className="section-lead">
-                Einfach, hochwertig und passend zur kalten Jahreszeit: eine kompakte Auswahl
-                an Wintergerichten, Snacks und saisonalen Spezialitäten.
-              </p>
+              <p className="eyebrow">{t.menu.eyebrow}</p>
+              <h2 className="section-title">{t.menu.title}</h2>
+              <p className="section-lead">{t.menu.lead}</p>
             </header>
 
             <ul className="menu-grid">
-              {menu.map((item, i) => (
+              {t.menu.items.map((item, i) => (
                 <li key={item.name} className={`menu-card ${i < 2 ? "menu-card--wide" : ""}`}>
                   <div className="menu-card__photo">
                     <Image
-                      src={item.image}
+                      src={menuImages[i]}
                       alt={item.alt}
                       fill
                       sizes={i < 2 ? "(max-width: 700px) 100vw, 50vw" : "(max-width: 700px) 100vw, 33vw"}
@@ -353,18 +316,18 @@ export default function Home() {
             </ul>
             <div className="bar-strip">
               <div className="bar-strip__head">
-                <p className="eyebrow">Heiss &amp; gemütlich</p>
-                <h3 className="bar-strip__title">Und an der Bar</h3>
+                <p className="eyebrow">{t.menu.barEyebrow}</p>
+                <h3 className="bar-strip__title">{t.menu.barTitle}</h3>
               </div>
               <ul className="chips">
-                {["Glühwein", "Punsch", "Heisse Schokolade", "Kaffee", "Tee", "Klassische Drinks", "Alkoholfreie Alternativen"].map((d) => (
+                {t.menu.drinks.map((d) => (
                   <li key={d} className="chip">{d}</li>
                 ))}
               </ul>
             </div>
             <p className="menu-note">
               <Snowflake className="menu-note__icon" />
-              Wo sinnvoll mit lokalen und regionalen Partnern. Das aktuelle Angebot und die Preise findest du vor Ort.
+              {t.menu.note}
             </p>
           </div>
         </section>
@@ -374,25 +337,23 @@ export default function Home() {
           <Snow count={28} />
           <div className="container visit">
             <div className="visit__hours">
-              <p className="eyebrow eyebrow--light">Öffnungszeiten</p>
-              <h2 className="section-title section-title--light">Komm vorbei</h2>
+              <p className="eyebrow eyebrow--light">{t.visit.eyebrow}</p>
+              <h2 className="section-title section-title--light">{t.visit.title}</h2>
               <dl className="timetable">
                 <div className="timetable__row">
-                  <dt><Calendar className="timetable__icon" /> Saison</dt>
-                  <dd>27. November 2026 – 3. Januar 2027</dd>
+                  <dt><Calendar className="timetable__icon" /> {t.visit.season}</dt>
+                  <dd>{t.visit.seasonValue}</dd>
                 </div>
                 <div className="timetable__row">
-                  <dt><Clock className="timetable__icon" /> Montag bis Sonntag</dt>
-                  <dd>11:00 – 22:00 Uhr</dd>
+                  <dt><Clock className="timetable__icon" /> {t.visit.days}</dt>
+                  <dd>{t.visit.daysValue}</dd>
                 </div>
                 <div className="timetable__row">
-                  <dt><Pin className="timetable__icon" /> Standort</dt>
-                  <dd>Alter Postplatz, 4500 Solothurn</dd>
+                  <dt><Pin className="timetable__icon" /> {t.visit.location}</dt>
+                  <dd>{site.address.street}, {site.address.zip} {site.address.city}</dd>
                 </div>
               </dl>
-              <p className="visit__hint">
-                Einfach vorbeikommen, aufwärmen und geniessen.
-              </p>
+              <p className="visit__hint">{t.visit.hint}</p>
             </div>
 
             <div className="visit__card">
@@ -400,22 +361,22 @@ export default function Home() {
                 <div className="ticket__stamp">
                   <Image
                     src="/images/briefmarke-solothurn.jpg"
-                    alt="Briefmarke mit der St.-Ursen-Kathedrale Solothurn"
+                    alt={t.visit.stampAlt}
                     width={425}
                     height={475}
                     sizes="180px"
                   />
                 </div>
-                <p className="ticket__label">Adresse</p>
+                <p className="ticket__label">{t.visit.addressLabel}</p>
                 <address className="ticket__address">
-                  Winter Post Solothurn
+                  {site.name}
                   <br />
                   {site.address.street}
                   <br />
                   {site.address.zip} {site.address.city}
                 </address>
                 <a href={site.mapsUrl} className="btn btn--red btn--block" target="_blank" rel="noopener noreferrer">
-                  <Pin className="btn__icon" /> In Google Maps öffnen
+                  <Pin className="btn__icon" /> {t.visit.maps}
                 </a>
               </div>
             </div>
@@ -426,21 +387,12 @@ export default function Home() {
         <section className="section paper paper--alt" id="nachhaltigkeit">
           <div className="container care">
             <div className="care__intro">
-              <p className="eyebrow">Verantwortung</p>
-              <h2 className="section-title">Gemütlich und trotzdem bewusst</h2>
-              <p className="section-lead">
-                Ein temporäres Projekt kann hochwertig wirken und gleichzeitig sorgsam mit
-                Ressourcen umgehen. Darum setzen wir auf natürliche Materialien und eine
-                möglichst ressourcenschonende Umsetzung.
-              </p>
+              <p className="eyebrow">{t.care.eyebrow}</p>
+              <h2 className="section-title">{t.care.title}</h2>
+              <p className="section-lead">{t.care.lead}</p>
             </div>
             <ul className="care__grid">
-              {[
-                { t: "Wiederverwenden", d: "Modulare Hütten, Mobiliar und Dekoration für mehrere Einsätze." },
-                { t: "Trennen", d: "Klare Abfallstationen für Glas, PET/Alu, Rest- und organische Abfälle." },
-                { t: "Mehrweg", d: "Mehrweggeschirr und langlebige Lösungen, wo immer es betrieblich sinnvoll ist." },
-                { t: "Regional", d: "Kurze Wege und lokale Partnerschaften, wo immer möglich." },
-              ].map((c, i) => (
+              {t.care.items.map((c, i) => (
                 <li key={c.t} className="care__card">
                   <span className="care__no">{String(i + 1).padStart(2, "0")}</span>
                   <h3>{c.t}</h3>
@@ -461,16 +413,10 @@ export default function Home() {
             className="team__bg"
           />
           <div className="container team__inner">
-            <p className="eyebrow eyebrow--light">Das Team</p>
-            <h2 className="team__title">Erfahrung trifft Leidenschaft.</h2>
-            <p className="team__text">
-              Hinter der Winter Post steht eine Crew mit einem erfolgreichen Jahrzehnt im
-              Eventmanagement, von Musikevents bis zu Pop-up-Konzepten. Wir koordinieren
-              Gastronomie, Künstler, Infrastruktur und Technik und haben einen klaren
-              Anspruch: Erwartungen nicht nur erfüllen, sondern übertreffen. Mit der
-              Winter Post wollen wir die kalte Jahreszeit in Solothurn bereichern.
-            </p>
-            <p className="team__quote">Aus Solothurn. Für Solothurn.</p>
+            <p className="eyebrow eyebrow--light">{t.team.eyebrow}</p>
+            <h2 className="team__title">{t.team.title}</h2>
+            <p className="team__text">{t.team.text}</p>
+            <p className="team__quote">{t.team.quote}</p>
           </div>
         </section>
 
@@ -480,17 +426,14 @@ export default function Home() {
             <div className="envelope">
               <div className="envelope__inner">
                 <div className="envelope__copy">
-                  <p className="eyebrow">Kontakt</p>
-                  <h2 className="section-title">Schreib uns ein paar Zeilen</h2>
-                  <p className="section-lead">
-                    Fragen, Ideen oder einfach liebe Grüsse? Wir freuen uns auf deine
-                    Nachricht.
-                  </p>
+                  <p className="eyebrow">{t.contact.eyebrow}</p>
+                  <h2 className="section-title">{t.contact.title}</h2>
+                  <p className="section-lead">{t.contact.lead}</p>
                   <div className="contact-links">
                     <a className="contact-link" href={`mailto:${site.email}`}>
                       <span className="contact-link__icon"><Mail /></span>
                       <span>
-                        <span className="contact-link__label">E-Mail</span>
+                        <span className="contact-link__label">{t.contact.email}</span>
                         <span className="contact-link__value">{site.email}</span>
                       </span>
                     </a>
@@ -511,11 +454,11 @@ export default function Home() {
                     height={150}
                     className="envelope__logo"
                   />
-                  <p className="envelope__airmail">Par Avion · Luftpost</p>
+                  <p className="envelope__airmail">{t.contact.airmail}</p>
                   <div className="envelope__lines">
-                    <span>An die Winter Post</span>
-                    <span>Alter Postplatz</span>
-                    <span>4500 Solothurn</span>
+                    {t.contact.lines.map((l) => (
+                      <span key={l}>{l}</span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -528,61 +471,67 @@ export default function Home() {
         <div className="airmail-bar" aria-hidden="true" />
         <div className="container footer__grid">
           <div className="footer__brand">
-            <Image src="/images/logo-stempel.png" alt="Winter Post Solothurn Logo" width={84} height={84} />
+            <Image src="/images/logo-stempel.png" alt={t.footer.logoAlt} width={84} height={84} />
             <div>
-              <p className="footer__claim">{site.claim}</p>
-              <p className="footer__small">{site.tagline}</p>
+              <p className="footer__claim">{t.claim}</p>
+              <p className="footer__small">{t.tagline}</p>
             </div>
           </div>
           <div className="footer__col">
-            <p className="footer__heading">Besuch</p>
-            <p>Alter Postplatz<br />4500 Solothurn</p>
-            <p>27.11.2026 – 3.1.2027<br />täglich 11–22 Uhr</p>
+            <p className="footer__heading">{t.footer.visit}</p>
+            <p>{site.address.street}<br />{site.address.zip} {site.address.city}</p>
+            <p>{t.footer.season}<br />{t.footer.hours}</p>
           </div>
           <div className="footer__col">
-            <p className="footer__heading">Kontakt</p>
+            <p className="footer__heading">{t.footer.contact}</p>
             <p>
               <a href={`mailto:${site.email}`}>{site.email}</a>
               <br />
               <a href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
             </p>
+            <ul className="footer__langs" aria-label={t.nav.language}>
+              {languages.map((l) => (
+                <li key={l.code}>
+                  <a
+                    href={l.href}
+                    hrefLang={l.hrefLang}
+                    lang={l.hrefLang}
+                    aria-current={l.code === lang ? "page" : undefined}
+                  >
+                    {l.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
         <div className="container">
           <details className="legal" id="impressum">
-            <summary>Impressum &amp; Datenschutz</summary>
+            <summary>{t.footer.legal}</summary>
             <div className="legal__body">
               <div>
-                <h3>Impressum</h3>
+                <h3>{t.footer.imprint}</h3>
                 <p>
-                  Winter Post Solothurn
+                  {site.name}
                   <br />
-                  Alter Postplatz, 4500 Solothurn
+                  {site.address.street}, {site.address.zip} {site.address.city}
                   <br />
-                  E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a>
+                  {t.footer.emailLabel}: <a href={`mailto:${site.email}`}>{site.email}</a>
                 </p>
               </div>
               <div>
-                <h3>Datenschutz</h3>
-                <p>
-                  Diese Website verwendet keine Cookies, keine Analyse- oder Trackingdienste
-                  und kein Kontaktformular. Schriften und Bilder werden direkt von unserem
-                  Server ausgeliefert. Beim Aufruf der Seite verarbeitet unser
-                  Hosting-Anbieter (Vercel) technisch notwendige Daten wie die IP-Adresse
-                  in Server-Logfiles, um die Website sicher auszuliefern. Wenn du uns per
-                  E-Mail oder Instagram kontaktierst, verwenden wir deine Angaben nur zur
-                  Beantwortung deiner Anfrage.
-                </p>
+                <h3>{t.footer.privacy}</h3>
+                <p>{t.footer.privacyText}</p>
               </div>
             </div>
           </details>
         </div>
 
         <div className="container footer__bottom">
-          <p>© {new Date().getFullYear()} Winter Post Solothurn</p>
+          <p>© {new Date().getFullYear()} {site.name}</p>
           <p>
-            Website von{" "}
+            {t.footer.credit}{" "}
             <a href="https://webnova.ch" target="_blank" rel="noopener noreferrer">
               Webnova
             </a>
