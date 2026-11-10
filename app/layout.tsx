@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "Raclette Solothurn",
   ],
   alternates: { canonical: "/" },
-  formatDetection: { telephone: true, email: true, address: true },
+  formatDetection: { telephone: false, email: true, address: true },
   robots: {
     index: true,
     follow: true,

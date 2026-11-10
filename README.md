@@ -21,7 +21,7 @@ Schriften werden über `next/font` selbst gehostet (keine Anfragen an Google bei
 
 ## Inhalte anpassen
 
-- **Alle Stammdaten** (E-Mail, Telefon, Adresse, Öffnungszeiten, Eröffnungsdatum, Instagram): `lib/site.ts`
+- **Alle Stammdaten** (E-Mail, Adresse, Öffnungszeiten, Eröffnungsdatum, Instagram): `lib/site.ts`
 - **Angebot / Speisekarte**: Array `menu` in `lib/site.ts`
 - **Bilder**: `public/images/` (aktuell Platzhalter aus dem Instagram-Profil; durch echte Fotos ersetzen, gleiche Dateinamen genügen)
 - **Texte der Sektionen, Impressum, Datenschutz**: `app/page.tsx`
