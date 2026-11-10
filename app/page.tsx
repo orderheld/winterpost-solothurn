@@ -2,7 +2,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import OpeningStatus from "@/components/OpeningStatus";
 import Snow from "@/components/Snow";
-import { Arrow, Calendar, Clock, Instagram, Mail, Phone, Pin, Snowflake } from "@/components/Icons";
+import { Arrow, Calendar, Clock, Instagram, Mail, Pin, Snowflake } from "@/components/Icons";
 import { menu, site } from "@/lib/site";
 
 const gallery = [
@@ -70,7 +70,6 @@ function JsonLd() {
         description: site.description,
         url: site.url,
         email: site.email,
-        telephone: site.phone.replace(/\s/g, ""),
         image: images,
         logo: `${site.url}/icon-512.png`,
         servesCuisine: ["Glühwein", "Raclette", "Schweizer Winterküche"],
@@ -485,7 +484,7 @@ export default function Home() {
                   <h2 className="section-title">Schreib uns ein paar Zeilen</h2>
                   <p className="section-lead">
                     Fragen, Ideen oder einfach liebe Grüsse? Wir freuen uns auf deine
-                    Nachricht oder deinen Anruf.
+                    Nachricht.
                   </p>
                   <div className="contact-links">
                     <a className="contact-link" href={`mailto:${site.email}`}>
@@ -493,13 +492,6 @@ export default function Home() {
                       <span>
                         <span className="contact-link__label">E-Mail</span>
                         <span className="contact-link__value">{site.email}</span>
-                      </span>
-                    </a>
-                    <a className="contact-link" href={site.phoneHref}>
-                      <span className="contact-link__icon"><Phone /></span>
-                      <span>
-                        <span className="contact-link__label">Telefon</span>
-                        <span className="contact-link__value">{site.phone}</span>
                       </span>
                     </a>
                     <a className="contact-link" href={site.instagram} target="_blank" rel="noopener noreferrer">
@@ -552,8 +544,6 @@ export default function Home() {
             <p>
               <a href={`mailto:${site.email}`}>{site.email}</a>
               <br />
-              <a href={site.phoneHref}>{site.phone}</a>
-              <br />
               <a href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
             </p>
           </div>
@@ -571,8 +561,6 @@ export default function Home() {
                   Alter Postplatz, 4500 Solothurn
                   <br />
                   E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a>
-                  <br />
-                  Telefon: <a href={site.phoneHref}>{site.phone}</a>
                 </p>
               </div>
               <div>
@@ -583,7 +571,7 @@ export default function Home() {
                   Server ausgeliefert. Beim Aufruf der Seite verarbeitet unser
                   Hosting-Anbieter (Vercel) technisch notwendige Daten wie die IP-Adresse
                   in Server-Logfiles, um die Website sicher auszuliefern. Wenn du uns per
-                  E-Mail oder Telefon kontaktierst, verwenden wir deine Angaben nur zur
+                  E-Mail oder Instagram kontaktierst, verwenden wir deine Angaben nur zur
                   Beantwortung deiner Anfrage.
                 </p>
               </div>

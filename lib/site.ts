@@ -18,8 +18,6 @@ export const site = {
       : "https://winterpost.ch")
   ).replace(/\/$/, ""),
   email: "kontakt@winterpost.ch",
-  phone: "+41 76 747 44 10",
-  phoneHref: "tel:+41767474410",
   instagram: "https://www.instagram.com/winterpostsolothurn/",
   instagramHandle: "@winterpostsolothurn",
   address: {
