@@ -3,15 +3,26 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const links = [
-  { href: "#idee", label: "Die Idee" },
-  { href: "#ort", label: "Der Ort" },
-  { href: "#angebot", label: "Angebot" },
-  { href: "#besuch", label: "Öffnungszeiten" },
-  { href: "#kontakt", label: "Kontakt" },
-];
+import type { Dict, Locale } from "@/lib/i18n";
 
-export default function Header() {
+type Language = { code: Locale; label: string; name: string; href: string; hrefLang: string };
+
+export default function Header({
+  nav,
+  lang,
+  languages,
+}: {
+  nav: Dict["nav"];
+  lang: Locale;
+  languages: Language[];
+}) {
+  const links = [
+    { href: "#idee", label: nav.idee },
+    { href: "#ort", label: nav.ort },
+    { href: "#angebot", label: nav.angebot },
+    { href: "#besuch", label: nav.besuch },
+    { href: "#kontakt", label: nav.kontakt },
+  ];
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -40,7 +51,7 @@ export default function Header() {
           </span>
         </a>
 
-        <nav className="nav" aria-label="Hauptnavigation">
+        <nav className="nav" aria-label={nav.main}>
           <ul className="nav__list" id="hauptmenue">
             {links.map((l) => (
               <li key={l.href}>
@@ -50,10 +61,25 @@ export default function Header() {
               </li>
             ))}
           </ul>
+          <ul className="langs langs--menu" aria-label={nav.language}>
+            {languages.map((l) => (
+              <li key={l.code}>
+                <a
+                  href={l.href}
+                  hrefLang={l.hrefLang}
+                  lang={l.hrefLang}
+                  title={l.name}
+                  aria-current={l.code === lang ? "page" : undefined}
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
 
         <a href="#besuch" className="btn btn--red header__cta">
-          Ab 27. November
+          {nav.cta}
         </a>
 
         <button
@@ -61,7 +87,7 @@ export default function Header() {
           className="burger"
           aria-expanded={open}
           aria-controls="hauptmenue"
-          aria-label={open ? "Menü schliessen" : "Menü öffnen"}
+          aria-label={open ? nav.close : nav.open}
           onClick={() => setOpen((v) => !v)}
         >
           <span />
