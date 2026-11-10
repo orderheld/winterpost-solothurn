@@ -25,44 +25,46 @@ const script = Yellowtail({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: `${site.name} | ${site.claim}`,
+  title: site.title,
   description: site.description,
+  applicationName: site.name,
   keywords: [
-    "Winter Post",
-    "Solothurn",
+    "Winter Post Solothurn",
     "Glühwein Solothurn",
+    "Wintertreffpunkt Solothurn",
     "Weihnachtsmarkt Solothurn",
-    "Alter Postplatz",
-    "Raclette",
-    "Wintertreffpunkt",
+    "Winter Pop-up Solothurn",
+    "Alter Postplatz Solothurn",
+    "Raclette Solothurn",
   ],
   alternates: { canonical: "/" },
+  formatDetection: { telephone: true, email: true, address: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   openGraph: {
     type: "website",
     locale: "de_CH",
-    url: site.url,
+    url: "/",
     siteName: site.name,
-    title: `${site.name} | ${site.claim}`,
-    description: site.description,
-    images: [
-      {
-        url: "/images/poster.jpg",
-        width: 1290,
-        height: 1601,
-        alt: "Winter Post Solothurn: ab 27. November, täglich 11 bis 22 Uhr",
-      },
-    ],
+    title: site.title,
+    description: site.shareDescription,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} | ${site.claim}`,
-    description: site.description,
-    images: ["/images/poster.jpg"],
+    title: site.title,
+    description: site.shareDescription,
   },
+  appleWebApp: { title: site.shortName, statusBarStyle: "black-translucent" },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#14213a",
+  themeColor: "#0e182b",
+  colorScheme: "light",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

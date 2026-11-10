@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <header className={`header ${scrolled ? "is-scrolled" : ""} ${open ? "is-open" : ""}`}>
       <div className="header__inner container">
-        <a href="#top" className="brand" aria-label="Winter Post Solothurn, zum Seitenanfang" onClick={() => setOpen(false)}>
+        <a href="#top" className="brand" onClick={() => setOpen(false)}>
           <Image src="/images/logo-stempel.png" alt="" width={48} height={48} className="brand__logo" priority />
           <span className="brand__text">
             <span className="brand__name">Winter Post</span>
