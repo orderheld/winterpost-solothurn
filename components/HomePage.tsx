@@ -58,6 +58,7 @@ function JsonLd({ lang }: { lang: Locale }) {
         description: t.meta.description,
         url,
         email: site.email,
+        hasMap: site.mapsUrl,
         image: images,
         logo: `${site.url}/icon-512.png`,
         servesCuisine: ["Glühwein", "Raclette", "Swiss winter food"],

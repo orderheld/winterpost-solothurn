@@ -19,7 +19,7 @@ export const site = {
     country: "CH",
   },
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Alter+Postplatz+4500+Solothurn",
+    "https://maps.app.goo.gl/mMQRU4ai3iYrMD6s6",
   // Eröffnung: Freitag, 27. November 2026, 11:00 Uhr (Europe/Zurich, UTC+1)
   openingIso: "2026-11-27T11:00:00+01:00",
   // Letzter Betriebstag: Sonntag, 3. Januar 2027, Schluss 22:00 Uhr
