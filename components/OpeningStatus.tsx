@@ -7,7 +7,8 @@ type State =
   | { kind: "loading" }
   | { kind: "countdown"; d: number; h: number; m: number; s: number }
   | { kind: "open"; until: string }
-  | { kind: "closed"; next: string };
+  | { kind: "closed"; next: string }
+  | { kind: "over" };
 
 function zurichHour(now: Date) {
   const parts = new Intl.DateTimeFormat("de-CH", {
@@ -33,6 +34,9 @@ function compute(now: Date): State {
       m: Math.floor((total % 3600) / 60),
       s: total % 60,
     };
+  }
+  if (now.getTime() >= new Date(site.closingIso).getTime()) {
+    return { kind: "over" };
   }
   const hour = zurichHour(now);
   if (hour >= site.hours.open && hour < site.hours.close) {
@@ -61,6 +65,15 @@ export default function OpeningStatus() {
       <p className="status status--open" role="status">
         <span className="status__dot" aria-hidden="true" />
         Jetzt geöffnet, bis {state.until} Uhr
+      </p>
+    );
+  }
+
+  if (state.kind === "over") {
+    return (
+      <p className="status" role="status">
+        <span className="status__dot status__dot--off" aria-hidden="true" />
+        Danke für eine wunderbare Wintersaison! Bis zum nächsten Winter.
       </p>
     );
   }

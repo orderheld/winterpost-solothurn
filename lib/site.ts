@@ -4,7 +4,7 @@ export const site = {
   claim: "Dein Winter. Dein Treffpunkt.",
   tagline: "Glühwein, Genuss & Weihnachtszauber",
   description:
-    "Winter Post Solothurn: dein neuer Wintertreffpunkt auf dem Alter Postplatz. Glühwein, heisse Schokolade, Raclettebrot, Grillwurst und Risotto. Ab 27. November 2026, täglich von 11 bis 22 Uhr.",
+    "Winter Post Solothurn: dein neuer Wintertreffpunkt auf dem Alter Postplatz. Ein Winter-Pop-up mit Holzhütten, Licht und Tannen: Glühwein, heisse Schokolade, Raclettebrot, Grillwurst und Risotto. Vom 27. November 2026 bis 3. Januar 2027, täglich von 11 bis 22 Uhr.",
   url: "https://www.winterpost.ch",
   email: "kontakt@winterpost.ch",
   phone: "+41 76 747 44 10",
@@ -22,6 +22,10 @@ export const site = {
   // Eröffnung: Freitag, 27. November 2026, 11:00 Uhr (Europe/Zurich, UTC+1)
   openingIso: "2026-11-27T11:00:00+01:00",
   openingLabel: "27. November 2026",
+  // Letzter Betriebstag: Sonntag, 3. Januar 2027, Schluss 22:00 Uhr
+  closingIso: "2027-01-03T22:00:00+01:00",
+  closingLabel: "3. Januar 2027",
+  seasonLabel: "27. November 2026 bis 3. Januar 2027",
   hours: { open: 11, close: 22, label: "Täglich 11:00 – 22:00 Uhr" },
 } as const;
 

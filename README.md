@@ -28,3 +28,12 @@ Schriften werden über `next/font` selbst gehostet (keine Anfragen an Google bei
 - **Design (Farben, Schriften, Abstände)**: `app/globals.css` (CSS-Variablen oben)
 
 Der Countdown im Hero zählt bis zur Eröffnung (`openingIso` in `lib/site.ts`) und zeigt danach automatisch „Jetzt geöffnet“ bzw. die nächste Öffnungszeit (Zeitzone Europe/Zurich).
+
+## Projektdossier (PDF)
+
+Das Dossier im Webseiten-Look liegt als Quelle in `dossier/dossier.html` (Bilder in `dossier/assets/`).
+PDF neu erzeugen (Playwright mit Chromium nötig):
+
+```bash
+node dossier/render.cjs                # schreibt dossier/Winter_Post_Projektdossier.pdf
+```
