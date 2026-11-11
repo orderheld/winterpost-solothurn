@@ -47,7 +47,7 @@ const it: Dict = {
     ctaMenu: "Scopri il menu",
     ctaRoute: "Indicazioni",
     posterAlt:
-      "Locandina della Winter Post Solothurn: dal 27 novembre, il tuo ritrovo invernale con vin brulé e piaceri, tutti i giorni dalle 11 alle 22, Postplatz Soletta",
+      "Locandina della Winter Post Solothurn: dal 27 novembre, il tuo ritrovo invernale con vin brulé e delizie, tutti i giorni dalle 11 alle 22, Postplatz Soletta",
     ring: "Apertura · 27.11.2026 · Soletta ·",
     scroll: "Scorri verso il basso",
   },

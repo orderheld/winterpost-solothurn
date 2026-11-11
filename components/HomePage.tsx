@@ -41,7 +41,7 @@ function JsonLd({ lang }: { lang: Locale }) {
   const images = [
     `${site.url}/og-image.jpg`,
     `${site.url}/images/ort/vogelperspektive.jpg`,
-    `${site.url}/images/poster.jpg`,
+    `${site.url}${posterSrc(lang)}`,
   ];
   const data = {
     "@context": "https://schema.org",
@@ -70,6 +70,7 @@ function JsonLd({ lang }: { lang: Locale }) {
         description: t.meta.description,
         url,
         email: site.email,
+        hasMap: site.mapsUrl,
         image: images,
         logo: `${site.url}/icon-512.png`,
         servesCuisine: ["Glühwein", "Raclette", "Swiss winter food"],
@@ -133,6 +134,10 @@ function JsonLd({ lang }: { lang: Locale }) {
     />
   );
 }
+
+/** Deutsch = Original-Plakat des Kunden, sonst übersetzte Version. */
+const posterSrc = (lang: Locale) =>
+  lang === "de" ? "/images/poster.jpg" : `/images/poster-${lang}.jpg`;
 
 export default function HomePage({ lang }: { lang: Locale }) {
   const t = getDict(lang);
@@ -202,7 +207,7 @@ export default function HomePage({ lang }: { lang: Locale }) {
               <div className="postcard-stack">
                 <figure className="postcard postcard--hero">
                   <Image
-                    src="/images/poster.jpg"
+                    src={posterSrc(lang)}
                     alt={t.hero.posterAlt}
                     width={1290}
                     height={1601}

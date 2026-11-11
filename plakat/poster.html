@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=Lora:wght@600;700&family=Yellowtail&family=Roboto+Slab:wght@700;800&display=block" rel="stylesheet">
+<style>
+html,body{margin:0;width:1290px;height:1601px;overflow:hidden}
+body{background:url(/tmp/winterpost-plakat-clean.png) 0 0/1290px 1601px;position:relative}
+.t{position:absolute;left:0;top:0;white-space:nowrap;transform-origin:center center;mix-blend-mode:multiply}
+.ink{color:#2b1f1a;opacity:.93}
+#date{font-family:'Roboto Slab';font-weight:800;color:#b5151c;letter-spacing:.5px;opacity:.95;
+ -webkit-mask:url(../public/images/stempel-maske.png) 0 0/700px auto;}
+#script{font-family:'Yellowtail';color:#231915}
+#sub{font-family:'Lora';font-weight:600;letter-spacing:1.5px}
+#band{font-family:'Roboto Slab';font-weight:700;letter-spacing:.5px;color:#2e2a22}
+#foot{font-family:'Lora';font-weight:600;letter-spacing:4px;color:#2b2420}
+svg{position:absolute;left:0;top:0;mix-blend-mode:multiply}
+</style></head><body>
+<div id="date" class="t"></div><div id="script" class="t"></div><div id="sub" class="t ink"></div>
+<div id="band" class="t"></div><div id="foot" class="t"></div>
+<svg width="1290" height="1601"><path id="ul" fill="#b5151c" opacity=".9"/></svg>
+<script>
+const P = JSON.parse(decodeURIComponent(location.search.slice(3)));
+function place(id, text, cx, cy, size, maxW, rot=0, sx=1){
+  const e=document.getElementById(id); e.textContent=text; e.style.fontSize=size+'px';
+  let w=e.getBoundingClientRect().width*sx; if(w>maxW){ size*=maxW/w; e.style.fontSize=size+'px'; }
+  const r=e.getBoundingClientRect();
+  e.style.left=(cx-r.width/2)+'px'; e.style.top=(cy-r.height/2)+'px'; e.style.transform=`rotate(${rot}deg) scaleX(${sx})`;
+  return e;
+}
+document.fonts.ready.then(()=>{
+  place('date', P.date, 660, 756, 168, 900, -4.1, .84);
+  const s=place('script', P.script, 650, 968, 235, 1060, -2);
+  place('sub', P.sub, 652, 1122, 64, 800);
+  place('band', P.band, 655, 1326, 54, 720);
+  place('foot', P.foot, 646, 1445, 42, 600);
+  // brush underline under the right half of the script line
+  const r=s.getBoundingClientRect(); const x1=r.left+r.width*0.47, x2=r.right-60, y=1052;
+  document.getElementById('ul').setAttribute('d',`M${x1},${y+14} C${x1+120},${y-6} ${x2-200},${y-14} ${x2},${y-6} C${x2-180},${y-4} ${x1+140},${y+4} ${x1+6},${y+18} Z`);
+  document.title='ready';
+});
+</script></body></html>

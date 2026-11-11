@@ -47,7 +47,7 @@ const fr: Dict = {
     ctaMenu: "Voir la carte",
     ctaRoute: "Itinéraire",
     posterAlt:
-      "Affiche de la Winter Post Solothurn : dès le 27 novembre, ton point de rencontre hivernal avec vin chaud et plaisirs, tous les jours de 11h à 22h, Postplatz Soleure",
+      "Affiche de la Winter Post Solothurn : dès le 27 novembre, ton rendez-vous d'hiver avec vin chaud et plaisirs, tous les jours de 11h à 22h, Postplatz Soleure",
     ring: "Ouverture · 27.11.2026 · Soleure ·",
     scroll: "Défiler vers le bas",
   },
