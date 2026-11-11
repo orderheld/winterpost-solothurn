@@ -1792,28 +1792,41 @@ body > .airmail-bar {
 }
 .event-card--poster {
   grid-column: 1 / -1;
-  max-width: 54rem;
+  max-width: 52rem;
   width: 100%;
   margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(13rem, 19rem) auto 1fr;
+  grid-template-areas: "poster date body";
   align-items: center;
+  gap: 0 1.3rem;
+  padding: 0;
+}
+.event-card--poster .event-card__date {
+  grid-area: date;
+  margin-left: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+}
+.event-card--poster .event-card__body {
+  grid-area: body;
+  padding: 1.5rem clamp(1.2rem, 0.8rem + 1.5vw, 2.2rem) 1.5rem 0;
 }
 .event-card__poster {
-  flex: none;
-  order: 3;
-  width: clamp(9rem, 6rem + 12vw, 16rem);
-  border-radius: calc(var(--radius) * 0.6);
+  grid-area: poster;
+  align-self: stretch;
+  display: block;
+  margin-top: 6px;
+  background: #1f3a2c;
   overflow: hidden;
-  box-shadow: var(--shadow);
-  transform: rotate(2deg);
-  transition: transform 0.25s ease;
-}
-.event-card__poster:hover {
-  transform: rotate(0deg) scale(1.02);
 }
 .event-card__poster img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.event-card__poster:hover img {
+  transform: scale(1.03);
 }
 .events-empty {
   position: relative;
@@ -1994,17 +2007,19 @@ body > .airmail-bar {
     text-align: center;
   }
   .event-card--poster {
-    flex-wrap: wrap;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "poster poster"
+      "date body";
+    gap: 0 1rem;
+  }
+  .event-card--poster .event-card__date {
+    margin-left: 1.2rem;
   }
   .event-card--poster .event-card__body {
-    flex: 1 1 12rem;
+    padding: 1.4rem 1.2rem 1.5rem 0;
   }
-  .event-card__poster {
-    order: 4;
-    width: min(100%, 15rem);
-    margin-inline: auto;
-    transform: none;
-  }
+
   .reservation__card {
     transform: none;
   }
