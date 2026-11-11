@@ -399,7 +399,7 @@ export default function HomePage({ lang }: { lang: Locale }) {
                           alt={e.title[lang]}
                           width={900}
                           height={1597}
-                          sizes="160px"
+                          sizes="(max-width: 760px) 60vw, 160px"
                         />
                       </a>
                     )}
