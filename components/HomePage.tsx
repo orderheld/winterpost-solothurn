@@ -3,12 +3,24 @@ import Header from "@/components/Header";
 import OpeningStatus from "@/components/OpeningStatus";
 import Snow from "@/components/Snow";
 import { Arrow, Calendar, Clock, Instagram, Mail, Pin, Snowflake } from "@/components/Icons";
-import { galleryImages, menuImages, site } from "@/lib/site";
+import { events, galleryImages, menuImages, site, specialHours } from "@/lib/site";
 import { getDict, localeInfo, locales, type Locale } from "@/lib/i18n";
 
 function pageUrl(lang: Locale) {
   const path = localeInfo[lang].path;
   return path === "/" ? `${site.url}/` : `${site.url}${path}`;
+}
+
+/** Datum (JJJJ-MM-TT) in der Sprache der Seite, Zeitzone Zürich. */
+function formatDate(date: string, lang: Locale, opts: Intl.DateTimeFormatOptions) {
+  return new Intl.DateTimeFormat(localeInfo[lang].htmlLang, { timeZone: "Europe/Zurich", ...opts }).format(
+    new Date(`${date}T12:00:00+01:00`),
+  );
+}
+
+function reservationMailto(lang: Locale) {
+  const r = getDict(lang).reservation;
+  return `mailto:${site.email}?subject=${encodeURIComponent(r.subject)}&body=${encodeURIComponent(r.body)}`;
 }
 
 function JsonLd({ lang }: { lang: Locale }) {
@@ -61,7 +73,7 @@ function JsonLd({ lang }: { lang: Locale }) {
         image: images,
         logo: `${site.url}/icon-512.png`,
         servesCuisine: ["Glühwein", "Raclette", "Swiss winter food"],
-        acceptsReservations: false,
+        acceptsReservations: true,
         sameAs: [site.instagram],
         address: place.address,
         openingHoursSpecification: [
@@ -73,6 +85,12 @@ function JsonLd({ lang }: { lang: Locale }) {
             validFrom: "2026-11-27",
             validThrough: "2027-01-03",
           },
+          ...specialHours.map((h) => ({
+            "@type": "OpeningHoursSpecification",
+            validFrom: h.date,
+            validThrough: h.date,
+            ...(h.opens && h.closes ? { opens: h.opens, closes: h.closes } : { opens: "00:00", closes: "00:00" }),
+          })),
         ],
       },
       {
@@ -90,6 +108,21 @@ function JsonLd({ lang }: { lang: Locale }) {
         location: place,
         organizer: { "@id": `${site.url}/#betrieb` },
         url,
+        ...(events.length
+          ? {
+              subEvent: events.map((e) => ({
+                "@type": "Event",
+                name: e.title[lang],
+                description: e.text[lang],
+                startDate: `${e.date}T${e.start ?? "11:00"}:00+01:00`,
+                ...(e.end ? { endDate: `${e.date}T${e.end}:00+01:00` } : {}),
+                eventStatus: "https://schema.org/EventScheduled",
+                eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+                location: place,
+                url: `${url}#events`,
+              })),
+            }
+          : {}),
       },
     ],
   };
@@ -332,6 +365,55 @@ export default function HomePage({ lang }: { lang: Locale }) {
           </div>
         </section>
 
+        {/* ---------- EVENTS ---------- */}
+        <section className="section paper" id="events">
+          <div className="container">
+            <header className="section-head">
+              <p className="eyebrow">{t.events.eyebrow}</p>
+              <h2 className="section-title">{t.events.title}</h2>
+              <p className="section-lead">{t.events.lead}</p>
+            </header>
+            {events.length > 0 ? (
+              <ul className="events">
+                {events.map((e) => (
+                  <li key={`${e.date}-${e.title.de}`} className="event-card">
+                    <p className="event-card__date">
+                      <span className="event-card__day">{formatDate(e.date, lang, { day: "numeric" })}</span>
+                      <span className="event-card__month">{formatDate(e.date, lang, { month: "short" })}</span>
+                    </p>
+                    <div className="event-card__body">
+                      <p className="event-card__meta">
+                        {formatDate(e.date, lang, { weekday: "long" })}
+                        {e.start && (
+                          <>
+                            {" · "}
+                            {e.start}
+                            {e.end && `–${e.end}`}
+                            {t.events.time && ` ${t.events.time}`}
+                          </>
+                        )}
+                      </p>
+                      <h3 className="event-card__title">{e.title[lang]}</h3>
+                      <p className="event-card__text">{e.text[lang]}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="events-empty">
+                <Snowflake className="events-empty__icon" />
+                <div>
+                  <h3 className="events-empty__title">{t.events.emptyTitle}</h3>
+                  <p className="events-empty__text">{t.events.emptyText}</p>
+                </div>
+                <a href={site.instagram} className="btn btn--red" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="btn__icon" /> {site.instagramHandle}
+                </a>
+              </div>
+            )}
+          </div>
+        </section>
+
         {/* ---------- BESUCH ---------- */}
         <section className="section night" id="besuch">
           <Snow count={28} />
@@ -354,6 +436,23 @@ export default function HomePage({ lang }: { lang: Locale }) {
                 </div>
               </dl>
               <p className="visit__hint">{t.visit.hint}</p>
+              <div className="special-hours">
+                <h3 className="special-hours__title">
+                  <Calendar className="timetable__icon" /> {t.visit.special.title}
+                </h3>
+                {specialHours.length > 0 ? (
+                  <dl className="timetable timetable--special">
+                    {specialHours.map((h) => (
+                      <div key={h.date} className="timetable__row">
+                        <dt>{formatDate(h.date, lang, { weekday: "long", day: "numeric", month: "long" })}</dt>
+                        <dd>{h.hours[lang]}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                ) : (
+                  <p className="special-hours__empty">{t.visit.special.empty}</p>
+                )}
+              </div>
             </div>
 
             <div className="visit__card">
@@ -379,6 +478,38 @@ export default function HomePage({ lang }: { lang: Locale }) {
                   <Pin className="btn__icon" /> {t.visit.maps}
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- RESERVATION ---------- */}
+        <section className="section paper" id="reservation">
+          <div className="container reservation">
+            <div className="reservation__intro">
+              <p className="eyebrow">{t.reservation.eyebrow}</p>
+              <h2 className="section-title">{t.reservation.title}</h2>
+              <p className="section-lead">{t.reservation.lead}</p>
+              <ul className="reservation__occasions">
+                {t.reservation.occasions.map((o) => (
+                  <li key={o.t} className="care__card">
+                    <h3>{o.t}</h3>
+                    <p>{o.d}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="reservation__card">
+              <p className="reservation__airmail">{t.contact.airmail}</p>
+              <h3 className="reservation__how">{t.reservation.howTitle}</h3>
+              <ol className="reservation__steps">
+                {t.reservation.how.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+              <a href={reservationMailto(lang)} className="btn btn--red btn--block">
+                <Mail className="btn__icon" /> {t.reservation.cta}
+              </a>
+              <p className="reservation__note">{t.reservation.note}</p>
             </div>
           </div>
         </section>

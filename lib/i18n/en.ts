@@ -25,6 +25,8 @@ const en: Dict = {
     idee: "The idea",
     ort: "The place",
     angebot: "Food & drinks",
+    events: "Events",
+    reservation: "Reservations",
     besuch: "Opening hours",
     kontakt: "Contact",
     cta: "From 27 November",
@@ -162,6 +164,43 @@ const en: Dict = {
     drinks: ["Mulled wine", "Punch", "Hot chocolate", "Coffee", "Tea", "Classic drinks", "Alcohol-free options"],
     note: "Working with local and regional partners wherever it makes sense. Current menu and prices are available on site.",
   },
+  events: {
+    eyebrow: "What's on",
+    title: "Events & specials",
+    lead: "Live music, apéro evenings, Advent specials and New Year's Eve: here's what's happening on Alter Postplatz.",
+    emptyTitle: "The programme is coming",
+    emptyText: "We're planning the first events right now. Check back soon or follow us on Instagram to be the first to know.",
+    time: "",
+  },
+  reservation: {
+    eyebrow: "For groups",
+    title: "Book your spot",
+    lead: "Company apéro, team Christmas dinner or a birthday with friends: for groups, we're happy to reserve an area for you.",
+    occasions: [
+      {
+        t: "Companies & teams",
+        d: "After-work apéro or Christmas dinner with mulled wine and raclette.",
+      },
+      {
+        t: "Clubs & groups",
+        d: "A cosy evening in the lounge, right in the old town.",
+      },
+      {
+        t: "Private parties",
+        d: "Birthday, anniversary or simply a winter get-together with friends.",
+      },
+    ],
+    howTitle: "It's that easy",
+    how: [
+      "Send us an email with the date, time and number of people.",
+      "We'll get back to you as soon as we can with a suggestion.",
+      "Come along and enjoy the evening.",
+    ],
+    cta: "Request by email",
+    note: "The email is already prepared, you just need to fill in the details.",
+    subject: "Reservation request Winter Post",
+    body: "Hello Winter Post\n\nWe would like to make a reservation:\n\nDate:\nTime:\nNumber of people:\nOccasion:\nName:\n\nMany thanks and kind regards",
+  },
   visit: {
     eyebrow: "Opening hours",
     title: "Come and see us",
@@ -174,6 +213,10 @@ const en: Dict = {
     stampAlt: "Stamp showing St. Ursus Cathedral in Solothurn",
     addressLabel: "Address",
     maps: "Open in Google Maps",
+    special: {
+      title: "Special opening hours",
+      empty: "There are no changes at the moment. Holiday hours will be listed here.",
+    },
   },
   care: {
     eyebrow: "Responsibility",
