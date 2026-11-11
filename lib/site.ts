@@ -33,7 +33,6 @@ export const menuImages = [
   "/images/heisse-schokolade.jpg",
   "/images/raclettebrot.jpg",
   "/images/grillwurst.jpg",
-  "/images/risotto.jpg",
 ];
 
 // Bilder der Ort-Galerie, Reihenfolge wie place.gallery in lib/i18n
