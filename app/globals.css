@@ -1790,6 +1790,31 @@ body > .airmail-bar {
 .event-card__text {
   color: var(--ink-soft);
 }
+.event-card--poster {
+  grid-column: 1 / -1;
+  max-width: 54rem;
+  width: 100%;
+  margin-inline: auto;
+  align-items: center;
+}
+.event-card__poster {
+  flex: none;
+  order: 3;
+  width: clamp(9rem, 6rem + 12vw, 16rem);
+  border-radius: calc(var(--radius) * 0.6);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transform: rotate(2deg);
+  transition: transform 0.25s ease;
+}
+.event-card__poster:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+.event-card__poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .events-empty {
   position: relative;
   display: flex;
@@ -1967,6 +1992,18 @@ body > .airmail-bar {
   .events-empty {
     flex-direction: column;
     text-align: center;
+  }
+  .event-card--poster {
+    flex-wrap: wrap;
+  }
+  .event-card--poster .event-card__body {
+    flex: 1 1 12rem;
+  }
+  .event-card__poster {
+    order: 4;
+    width: min(100%, 15rem);
+    margin-inline: auto;
+    transform: none;
   }
   .reservation__card {
     transform: none;

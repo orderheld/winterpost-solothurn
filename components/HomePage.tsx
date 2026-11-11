@@ -121,6 +121,7 @@ function JsonLd({ lang }: { lang: Locale }) {
                 eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
                 location: place,
                 url: `${url}#events`,
+                ...(e.image ? { image: `${site.url}${e.image}` } : {}),
               })),
             }
           : {}),
@@ -381,7 +382,27 @@ export default function HomePage({ lang }: { lang: Locale }) {
             {events.length > 0 ? (
               <ul className="events">
                 {events.map((e) => (
-                  <li key={`${e.date}-${e.title.de}`} className="event-card">
+                  <li
+                    key={`${e.date}-${e.title.de}`}
+                    className={e.image ? "event-card event-card--poster" : "event-card"}
+                  >
+                    {e.image && (
+                      <a
+                        href={e.image}
+                        className="event-card__poster"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={e.title[lang]}
+                      >
+                        <Image
+                          src={e.image}
+                          alt={e.title[lang]}
+                          width={900}
+                          height={1597}
+                          sizes="(max-width: 760px) 40vw, 260px"
+                        />
+                      </a>
+                    )}
                     <p className="event-card__date">
                       <span className="event-card__day">{formatDate(e.date, lang, { day: "numeric" })}</span>
                       <span className="event-card__month">{formatDate(e.date, lang, { month: "short" })}</span>
