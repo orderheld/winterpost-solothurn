@@ -17,10 +17,11 @@ export default function Header({
   languages: Language[];
 }) {
   const links = [
-    { href: "#idee", label: nav.idee },
     { href: "#ort", label: nav.ort },
     { href: "#angebot", label: nav.angebot },
+    { href: "#events", label: nav.events },
     { href: "#besuch", label: nav.besuch },
+    { href: "#reservation", label: nav.reservation },
     { href: "#kontakt", label: nav.kontakt },
   ];
   const [scrolled, setScrolled] = useState(false);

@@ -42,3 +42,42 @@ export const galleryImages = [
   "/images/ort/bar.jpg",
   "/images/ort/lounge.jpg",
 ];
+
+// ---------------------------------------------------------------------------
+// Events & Specials. Neues Event = ein Eintrag hier (Texte in allen 4 Sprachen).
+// Beispiel:
+// {
+//   date: "2026-12-05",          // Datum (JJJJ-MM-TT)
+//   start: "18:00", end: "21:00", // optional
+//   title: { de: "Live-Musik", fr: "Musique live", it: "Musica dal vivo", en: "Live music" },
+//   text: { de: "…", fr: "…", it: "…", en: "…" },
+// },
+// Solange die Liste leer ist, zeigt die Seite "Das Programm folgt".
+// ---------------------------------------------------------------------------
+type Localized = { de: string; fr: string; it: string; en: string };
+
+export type SiteEvent = {
+  date: string;
+  start?: string;
+  end?: string;
+  title: Localized;
+  text: Localized;
+};
+
+export const events: SiteEvent[] = [];
+
+// ---------------------------------------------------------------------------
+// Besondere Öffnungszeiten (Feiertage usw.). Beispiel:
+// { date: "2026-12-24", hours: { de: "11:00 – 17:00 Uhr", fr: "11h00 – 17h00", it: "11:00 – 17:00", en: "11 am – 5 pm" },
+//   opens: "11:00", closes: "17:00" },
+// Geschlossen: opens/closes weglassen und hours z. B. { de: "Geschlossen", … }.
+// Solange die Liste leer ist, steht dort "Zurzeit gibt es keine Abweichungen".
+// ---------------------------------------------------------------------------
+export type SpecialHours = {
+  date: string;
+  hours: Localized;
+  opens?: string;
+  closes?: string;
+};
+
+export const specialHours: SpecialHours[] = [];

@@ -25,6 +25,8 @@ const it: Dict = {
     idee: "L’idea",
     ort: "Il luogo",
     angebot: "Menu",
+    events: "Eventi",
+    reservation: "Prenotazione",
     besuch: "Orari",
     kontakt: "Contatto",
     cta: "Dal 27 novembre",
@@ -162,6 +164,43 @@ const it: Dict = {
     drinks: ["Vin brulé", "Punch", "Cioccolata calda", "Caffè", "Tè", "Drink classici", "Alternative analcoliche"],
     note: "Dove possibile con partner locali e regionali. L’offerta attuale e i prezzi li trovi sul posto.",
   },
+  events: {
+    eyebrow: "Programma",
+    title: "Eventi & special",
+    lead: "Musica dal vivo, serate aperitivo, special d’Avvento e San Silvestro: qui trovi cosa succede sull’Alter Postplatz.",
+    emptyTitle: "Il programma è in arrivo",
+    emptyText: "Stiamo preparando i primi eventi. Torna presto o seguici su Instagram per saperlo per primo.",
+    time: "",
+  },
+  reservation: {
+    eyebrow: "Per gruppi",
+    title: "Prenota il tuo posto",
+    lead: "Aperitivo aziendale, cena di Natale con il team o compleanno con gli amici: per i gruppi riserviamo volentieri uno spazio per te.",
+    occasions: [
+      {
+        t: "Aziende & team",
+        d: "Aperitivo dopo il lavoro o cena di Natale con vin brulé e raclette.",
+      },
+      {
+        t: "Associazioni & gruppi",
+        d: "Una serata accogliente nella lounge, nel cuore del centro storico.",
+      },
+      {
+        t: "Feste private",
+        d: "Compleanno, anniversario o semplicemente un ritrovo invernale con gli amici.",
+      },
+    ],
+    howTitle: "È semplicissimo",
+    how: [
+      "Scrivici un’e-mail con data, ora e numero di persone.",
+      "Ti rispondiamo al più presto con una proposta.",
+      "Vieni a trovarci e goditi la serata.",
+    ],
+    cta: "Richiesta via e-mail",
+    note: "L’e-mail è già pronta, devi solo completare i dati.",
+    subject: "Richiesta di prenotazione Winter Post",
+    body: "Ciao Winter Post\n\nVorremmo prenotare:\n\nData:\nOra:\nNumero di persone:\nOccasione:\nNome:\n\nGrazie mille e cordiali saluti",
+  },
   visit: {
     eyebrow: "Orari",
     title: "Passa a trovarci",
@@ -174,6 +213,10 @@ const it: Dict = {
     stampAlt: "Francobollo con la cattedrale di Sant’Orso a Soletta",
     addressLabel: "Indirizzo",
     maps: "Apri in Google Maps",
+    special: {
+      title: "Orari speciali",
+      empty: "Al momento non ci sono variazioni. Gli orari dei giorni festivi saranno indicati qui.",
+    },
   },
   care: {
     eyebrow: "Responsabilità",
