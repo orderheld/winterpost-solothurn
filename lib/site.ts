@@ -51,6 +51,7 @@ export const galleryImages = [
 //   start: "18:00", end: "21:00", // optional
 //   title: { de: "Live-Musik", fr: "Musique live", it: "Musica dal vivo", en: "Live music" },
 //   text: { de: "…", fr: "…", it: "…", en: "…" },
+//   image: "/images/events/flyer.jpg",  // optional, Flyer/Plakat (Hochformat)
 // },
 // Solange die Liste leer ist, zeigt die Seite "Das Programm folgt".
 // ---------------------------------------------------------------------------
@@ -62,9 +63,29 @@ export type SiteEvent = {
   end?: string;
   title: Localized;
   text: Localized;
+  image?: string;
 };
 
-export const events: SiteEvent[] = [];
+export const events: SiteEvent[] = [
+  {
+    date: "2026-12-06",
+    start: "12:00",
+    end: "15:00",
+    title: {
+      de: "Dr Samichlaus isch da!",
+      fr: "Saint-Nicolas est là\u00a0!",
+      it: "Arriva San Nicolao!",
+      en: "St. Nicholas is here!",
+    },
+    text: {
+      de: "Am Samichlaustag besucht uns der Samichlaus auf dem Alten Postplatz. Komm mit der ganzen Familie vorbei und sag ihm Hallo.",
+      fr: "Le jour de la Saint-Nicolas, le Samichlaus nous rend visite sur l’Alter Postplatz. Viens en famille lui dire bonjour.",
+      it: "Il giorno di San Nicolao, il Samichlaus ci fa visita sull’Alter Postplatz. Vieni con tutta la famiglia a salutarlo.",
+      en: "On St. Nicholas Day, the Samichlaus pays us a visit on the Alter Postplatz. Bring the whole family and come say hello.",
+    },
+    image: "/images/events/samichlaus.jpg",
+  },
+];
 
 // ---------------------------------------------------------------------------
 // Besondere Öffnungszeiten (Feiertage usw.). Beispiel:
