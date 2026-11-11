@@ -318,6 +318,22 @@ export default function HomePage({ lang }: { lang: Locale }) {
                   </div>
                 </li>
               ))}
+              <li className="menu-card menu-card--soon">
+                <div className="menu-card__soon" aria-hidden="true">
+                  <Snowflake className="menu-card__soon-icon" />
+                  <span className="menu-card__soon-stamp">{t.menu.soon.category}</span>
+                </div>
+                <div className="menu-card__body">
+                  <p className="menu-card__cat">{t.menu.soon.category}</p>
+                  <h3 className="menu-card__name">{t.menu.soon.name}</h3>
+                  <p className="menu-card__text">
+                    {t.menu.soon.text}{" "}
+                    <a href={site.instagram} target="_blank" rel="noopener noreferrer">
+                      {site.instagramHandle}
+                    </a>
+                  </p>
+                </div>
+              </li>
             </ul>
             <div className="bar-strip">
               <div className="bar-strip__head">
