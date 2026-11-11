@@ -25,6 +25,8 @@ const fr: Dict = {
     idee: "L’idée",
     ort: "Le lieu",
     angebot: "À la carte",
+    events: "Événements",
+    reservation: "Réservation",
     besuch: "Horaires",
     kontakt: "Contact",
     cta: "Dès le 27 novembre",
@@ -162,6 +164,43 @@ const fr: Dict = {
     drinks: ["Vin chaud", "Punch", "Chocolat chaud", "Café", "Thé", "Drinks classiques", "Alternatives sans alcool"],
     note: "Avec des partenaires locaux et régionaux lorsque c’est possible. L’offre actuelle et les prix sont affichés sur place.",
   },
+  events: {
+    eyebrow: "Programme",
+    title: "Événements & specials",
+    lead: "Musique live, soirées apéro, specials de l’Avent et Saint-Sylvestre : découvre ce qui se passe sur l’Alter Postplatz.",
+    emptyTitle: "Le programme arrive",
+    emptyText: "Nous préparons les premiers événements. Repasse bientôt ou suis-nous sur Instagram pour être informé en premier.",
+    time: "h",
+  },
+  reservation: {
+    eyebrow: "Pour les groupes",
+    title: "Réserve ta place",
+    lead: "Apéro d’entreprise, repas de Noël avec l’équipe ou anniversaire entre amis : pour les groupes, nous réservons volontiers un espace pour toi.",
+    occasions: [
+      {
+        t: "Entreprises & équipes",
+        d: "Apéro after-work ou repas de Noël avec vin chaud et raclette.",
+      },
+      {
+        t: "Associations & groupes",
+        d: "Une soirée conviviale dans le lounge, au cœur de la vieille ville.",
+      },
+      {
+        t: "Fêtes privées",
+        d: "Anniversaire, jubilé ou simplement une rencontre d’hiver entre amis.",
+      },
+    ],
+    howTitle: "C’est tout simple",
+    how: [
+      "Écris-nous un e-mail avec la date, l’heure et le nombre de personnes.",
+      "Nous te répondons au plus vite avec une proposition.",
+      "Tu passes et tu profites de la soirée.",
+    ],
+    cta: "Demande par e-mail",
+    note: "L’e-mail est déjà préparé, il te suffit de compléter les informations.",
+    subject: "Demande de réservation Winter Post",
+    body: "Bonjour Winter Post\n\nNous aimerions réserver :\n\nDate :\nHeure :\nNombre de personnes :\nOccasion :\nNom :\n\nMerci beaucoup et meilleures salutations",
+  },
   visit: {
     eyebrow: "Horaires",
     title: "Passe nous voir",
@@ -174,6 +213,10 @@ const fr: Dict = {
     stampAlt: "Timbre représentant la cathédrale Saint-Ours de Soleure",
     addressLabel: "Adresse",
     maps: "Ouvrir dans Google Maps",
+    special: {
+      title: "Horaires spéciaux",
+      empty: "Aucun changement pour le moment. Les horaires des jours fériés seront indiqués ici.",
+    },
   },
   care: {
     eyebrow: "Responsabilité",

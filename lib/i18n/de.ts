@@ -24,6 +24,8 @@ const de = {
     idee: "Die Idee",
     ort: "Der Ort",
     angebot: "Angebot",
+    events: "Events",
+    reservation: "Reservation",
     besuch: "Öffnungszeiten",
     kontakt: "Kontakt",
     cta: "Ab 27. November",
@@ -161,6 +163,43 @@ const de = {
     drinks: ["Glühwein", "Punsch", "Heisse Schokolade", "Kaffee", "Tee", "Klassische Drinks", "Alkoholfreie Alternativen"],
     note: "Wo sinnvoll mit lokalen und regionalen Partnern. Das aktuelle Angebot und die Preise findest du vor Ort.",
   },
+  events: {
+    eyebrow: "Programm",
+    title: "Events & Specials",
+    lead: "Live-Musik, Apéro-Abende, Adventsspecials und Silvester: Hier findest du, was auf dem Alten Postplatz los ist.",
+    emptyTitle: "Das Programm folgt",
+    emptyText: "Wir planen gerade die ersten Events. Schau bald wieder vorbei oder folge uns auf Instagram, dann bist du als Erstes informiert.",
+    time: "Uhr",
+  },
+  reservation: {
+    eyebrow: "Für Gruppen",
+    title: "Reserviere deinen Platz",
+    lead: "Firmen-Apéro, Weihnachtsessen mit dem Team oder Geburtstag mit Freunden: Für Gruppen reservieren wir gerne einen Bereich für dich.",
+    occasions: [
+      {
+        t: "Firmen & Teams",
+        d: "Feierabend-Apéro oder Weihnachtsessen mit Glühwein und Raclette.",
+      },
+      {
+        t: "Vereine & Gruppen",
+        d: "Gemütlicher Abend in der Lounge, mitten in der Altstadt.",
+      },
+      {
+        t: "Private Feiern",
+        d: "Geburtstag, Jubiläum oder einfach ein Wintertreffen mit Freunden.",
+      },
+    ],
+    howTitle: "So einfach geht's",
+    how: [
+      "Schreib uns eine E-Mail mit Datum, Uhrzeit und Anzahl Personen.",
+      "Wir melden uns so schnell wie möglich mit einem Vorschlag.",
+      "Du kommst vorbei und geniesst den Abend.",
+    ],
+    cta: "Anfrage per E-Mail",
+    note: "Die E-Mail ist schon vorbereitet, du musst nur noch die Angaben ergänzen.",
+    subject: "Reservationsanfrage Winter Post",
+    body: "Hallo Winter Post\n\nGerne möchten wir reservieren:\n\nDatum:\nUhrzeit:\nAnzahl Personen:\nAnlass:\nName:\n\nVielen Dank und herzliche Grüsse",
+  },
   visit: {
     eyebrow: "Öffnungszeiten",
     title: "Komm vorbei",
@@ -173,6 +212,10 @@ const de = {
     stampAlt: "Briefmarke mit der St.-Ursen-Kathedrale Solothurn",
     addressLabel: "Adresse",
     maps: "In Google Maps öffnen",
+    special: {
+      title: "Besondere Öffnungszeiten",
+      empty: "Zurzeit gibt es keine Abweichungen. Änderungen an Feiertagen findest du hier.",
+    },
   },
   care: {
     eyebrow: "Verantwortung",
