@@ -2006,12 +2006,11 @@ body > .airmail-bar {
     grid-template-columns: auto 1fr;
     grid-template-areas:
       "date body"
-      "poster poster";
+      ". poster";
     gap: 0 1rem;
   }
   .event-card__poster {
-    justify-self: center;
-    width: 8.5rem;
+    width: 100%;
     margin-top: 1.2rem;
   }
 
