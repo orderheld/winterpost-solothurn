@@ -1719,3 +1719,53 @@ body > .airmail-bar {
     font-size: 0.95rem;
   }
 }
+
+/* ---------- Angebot: Hinweis auf weitere Speisen ---------- */
+.menu-card__soon {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background:
+    repeating-linear-gradient(-45deg, var(--red) 0 14px, transparent 14px 22px, var(--blue) 22px 36px, transparent 36px 44px) border-box,
+    var(--paper-3);
+  border: 8px solid transparent;
+  background-clip: border-box, padding-box;
+}
+.menu-card__soon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: var(--cream);
+}
+.menu-card__soon-icon {
+  position: relative;
+  width: 34%;
+  height: auto;
+  color: var(--blue);
+  opacity: 0.85;
+}
+.menu-card__soon-stamp {
+  position: absolute;
+  right: 10%;
+  bottom: 14%;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  border: 2px solid currentColor;
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
+  padding: 0.3rem 0.7rem;
+  transform: rotate(-8deg);
+}
+.menu-card--soon .menu-card__text a {
+  color: var(--red);
+  font-weight: 600;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}

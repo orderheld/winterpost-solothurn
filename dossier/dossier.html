@@ -115,6 +115,8 @@
   .food { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3mm; }
   .food figure { margin: 0; }
   .food .photo { aspect-ratio: 1; border-radius: 2mm; }
+  .food .soon { display: grid; place-items: center; background: var(--cream, #f8efdc); border: 1.2mm dashed var(--red, #b5151c); }
+  .food .soon span { font-family: var(--slab); font-weight: 700; font-size: 9pt; line-height: 1.25; text-align: center; color: var(--red, #b5151c); }
   .food figcaption { font-family: var(--slab); font-weight: 700; font-size: 9pt; text-align: center; margin-top: 1.5mm; }
 
   .rows { display: grid; gap: 3.2mm; }
@@ -235,7 +237,7 @@
       <figure><div class="photo"><img src="../public/images/heisse-schokolade.jpg" alt="" /></div><figcaption>Heisse Schokolade</figcaption></figure>
       <figure><div class="photo"><img src="../public/images/raclettebrot.jpg" alt="" /></div><figcaption>Raclettebrot</figcaption></figure>
       <figure><div class="photo"><img src="../public/images/grillwurst.jpg" alt="" /></div><figcaption>Grillwurst</figcaption></figure>
-      <figure><div class="photo"><img src="../public/images/risotto.jpg" alt="" /></div><figcaption>Pilzrisotto</figcaption></figure>
+      <figure><div class="photo soon"><span>Weitere<br>Speisen<br>folgen</span></div><figcaption>Bald neu</figcaption></figure>
     </div>
 
     <div class="grid3" style="margin-top: 6mm;">
