@@ -4,6 +4,7 @@ import OpeningStatus from "@/components/OpeningStatus";
 import Snow from "@/components/Snow";
 import { Arrow, Calendar, Clock, Instagram, Mail, Pin, Snowflake } from "@/components/Icons";
 import { events, galleryImages, menuImages, site, specialHours } from "@/lib/site";
+import { drinks, food, tx } from "@/lib/menu";
 import { getDict, localeInfo, locales, type Locale } from "@/lib/i18n";
 
 function pageUrl(lang: Locale) {
@@ -353,16 +354,65 @@ export default function HomePage({ lang }: { lang: Locale }) {
                 </li>
               ))}
             </ul>
-            <div className="bar-strip">
-              <div className="bar-strip__head">
-                <p className="eyebrow">{t.menu.barEyebrow}</p>
-                <h3 className="bar-strip__title">{t.menu.barTitle}</h3>
-              </div>
-              <ul className="chips">
-                {t.menu.drinks.map((d) => (
-                  <li key={d} className="chip">{d}</li>
-                ))}
-              </ul>
+            <div className="boards" id="karte">
+              <article className="board board--food">
+                <header className="board__head">
+                  <p className="board__eyebrow">{t.menu.foodEyebrow}</p>
+                  <h3 className="board__title">{t.menu.foodTitle}</h3>
+                </header>
+                <ul className="board__list">
+                  {food.map((item) => (
+                    <li key={tx(item.name, "de")} className="board__item board__item--food">
+                      <div className="board__row">
+                        <span className="board__name">
+                          {tx(item.name, lang)}
+                        </span>
+                        <span className="board__dots" aria-hidden="true" />
+                        <span className="board__price">
+                          <small>CHF</small> {item.price}
+                        </span>
+                      </div>
+                      {item.detail && (
+                        <p className="board__detail">
+                          {item.veg && <span className="board__veg">{t.menu.vegLabel}</span>}
+                          {tx(item.detail, lang)}
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                <Snowflake className="board__flake" />
+              </article>
+
+              <article className="board board--drinks">
+                <header className="board__head">
+                  <p className="board__eyebrow">{t.menu.drinksEyebrow}</p>
+                  <h3 className="board__title">{t.menu.drinksTitle}</h3>
+                </header>
+                <div className="board__groups">
+                  {drinks.map((group) => (
+                    <section key={group.title.de} className="board__group">
+                      <h4 className="board__group-title">{group.title[lang]}</h4>
+                      <ul className="board__list">
+                        {group.items.map((item) => (
+                          <li key={tx(item.name, "de")} className="board__item">
+                            <div className="board__row">
+                              <span className="board__name">
+                                {tx(item.name, lang)}
+                                {item.detail && <span className="board__extra"> {tx(item.detail, lang)}</span>}
+                                {item.size && <span className="board__size">{item.size}</span>}
+                              </span>
+                              <span className="board__dots" aria-hidden="true" />
+                              <span className="board__price">{item.price}</span>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  ))}
+                </div>
+                <p className="board__deposit">{t.menu.deposit}</p>
+              </article>
             </div>
             <p className="menu-note">
               <Snowflake className="menu-note__icon" />
