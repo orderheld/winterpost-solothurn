@@ -854,18 +854,19 @@ body > .airmail-bar {
 .menu-card:hover .menu-card__photo img {
   transform: scale(1.05);
 }
-.menu-card__no {
+.menu-card__price {
   position: absolute;
   top: 12px;
-  left: 12px;
+  right: 12px;
   font-family: var(--font-head);
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
   color: var(--cream);
-  background: rgb(20 33 58 / 0.85);
-  padding: 0.25rem 0.6rem;
+  background: var(--red);
+  padding: 0.3rem 0.8rem;
   border-radius: 999px;
+  box-shadow: 0 4px 12px -4px rgb(0 0 0 / 0.5);
 }
 .menu-card__body {
   padding: 1.3rem 0.9rem 1rem;
@@ -889,6 +890,9 @@ body > .airmail-bar {
 }
 .menu-card__text {
   color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 46ch;
 }
 .menu-note {
   display: flex;
@@ -1646,8 +1650,14 @@ body > .airmail-bar {
   margin-bottom: 0.35rem;
   border-bottom: 1px solid rgb(31 61 115 / 0.3);
 }
+.board__deposit-fee {
+  display: block;
+  font-size: 1.15em;
+  color: var(--gold);
+}
 .board__deposit {
   margin: auto auto 0;
+  line-height: 1.4;
   padding: 0.65rem 1.4rem;
   text-align: center;
   font-family: var(--font-head);

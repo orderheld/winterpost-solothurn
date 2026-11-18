@@ -28,12 +28,13 @@ export const site = {
 } as const;
 
 // Bilder des Angebots, Reihenfolge wie die Texte in lib/i18n (menu.items)
-export const menuImages = [
-  "/images/gluehwein.jpg",
-  "/images/heisse-schokolade.jpg",
-  "/images/raclettebrot.jpg",
-  "/images/grillwurst.jpg",
-  "/images/gemuesegulasch.jpg",
+// und wie die Speise-/Getränkekarte (lib/menu.ts). Preis in CHF, from = "ab".
+export const menuImages: { src: string; price: string; from?: boolean }[] = [
+  { src: "/images/grillwurst.jpg", price: "8.50" },
+  { src: "/images/gemuesegulasch.jpg", price: "12.50" },
+  { src: "/images/raclettebrot.jpg", price: "9.50" },
+  { src: "/images/gluehwein.jpg", price: "5" },
+  { src: "/images/heisse-schokolade.jpg", price: "5", from: true },
 ];
 
 // Bilder der Ort-Galerie, Reihenfolge wie place.gallery in lib/i18n

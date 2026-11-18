@@ -337,13 +337,13 @@ export default function HomePage({ lang }: { lang: Locale }) {
                 <li key={item.name} className={`menu-card ${i < 2 ? "menu-card--wide" : ""}`}>
                   <div className="menu-card__photo">
                     <Image
-                      src={menuImages[i]}
+                      src={menuImages[i].src}
                       alt={item.alt}
                       fill
                       sizes={i < 2 ? "(max-width: 700px) 100vw, 50vw" : "(max-width: 700px) 100vw, 33vw"}
                     />
-                    <span className="menu-card__no" aria-hidden="true">
-                      {String(i + 1).padStart(2, "0")}
+                    <span className="menu-card__price">
+                      {menuImages[i].from && `${t.menu.priceFrom} `}CHF {menuImages[i].price}
                     </span>
                   </div>
                   <div className="menu-card__body">
@@ -411,7 +411,10 @@ export default function HomePage({ lang }: { lang: Locale }) {
                     </section>
                   ))}
                 </div>
-                <p className="board__deposit">{t.menu.deposit}</p>
+                <p className="board__deposit">
+                  {t.menu.deposit}
+                  <span className="board__deposit-fee">{t.menu.depositFee}</span>
+                </p>
               </article>
             </div>
             <p className="menu-note">
