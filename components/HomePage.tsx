@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import OpeningStatus from "@/components/OpeningStatus";
 import Snow from "@/components/Snow";
 import { Arrow, Calendar, Clock, Instagram, Mail, Pin, Snowflake } from "@/components/Icons";
-import { events, galleryImages, menuImages, site, specialHours } from "@/lib/site";
+import { events, galleryImages, menuImages, press, site, specialHours } from "@/lib/site";
 import { drinks, food, tx } from "@/lib/menu";
 import { getDict, localeInfo, locales, type Locale } from "@/lib/i18n";
 
@@ -30,6 +30,7 @@ function JsonLd({ lang }: { lang: Locale }) {
   const place = {
     "@type": "Place",
     name: `${site.address.street}, ${site.address.city}`,
+    geo: { "@type": "GeoCoordinates", latitude: site.geo.lat, longitude: site.geo.lng },
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.street,
@@ -67,6 +68,7 @@ function JsonLd({ lang }: { lang: Locale }) {
         "@type": "FoodEstablishment",
         "@id": `${site.url}/#betrieb`,
         name: site.name,
+        alternateName: ["Winterpost Solothurn", "Winter Post", "Winterpost"],
         slogan: t.claim,
         description: t.meta.description,
         url,
@@ -76,8 +78,26 @@ function JsonLd({ lang }: { lang: Locale }) {
         logo: `${site.url}/icon-512.png`,
         servesCuisine: ["Glühwein", "Raclette", "Swiss winter food"],
         acceptsReservations: true,
+        hasMenu: `${url}#karte`,
+        priceRange: "CHF 3.50–14",
+        currenciesAccepted: "CHF",
         sameAs: [site.instagram],
         address: place.address,
+        geo: { "@type": "GeoCoordinates", latitude: site.geo.lat, longitude: site.geo.lng },
+        ...(press.length
+          ? {
+              subjectOf: press.map((p) => ({
+                "@type": "NewsArticle",
+                headline: p.title,
+                url: p.url,
+                datePublished: p.date,
+                inLanguage: "de-CH",
+                publisher: { "@type": "Organization", name: p.outlet },
+                ...(p.author ? { author: { "@type": "Person", name: p.author } } : {}),
+                ...(p.paywall ? { isAccessibleForFree: false } : {}),
+              })),
+            }
+          : {}),
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -172,6 +192,7 @@ export default function HomePage({ lang }: { lang: Locale }) {
                 {t.hero.eyebrow}
               </p>
               <h1 className="hero__title">
+                <span className="sr-only">{site.name}: </span>
                 <span>{t.hero.title1}</span>
                 <span>{t.hero.title2}</span>
               </h1>
@@ -630,6 +651,54 @@ export default function HomePage({ lang }: { lang: Locale }) {
           </div>
         </section>
 
+        {/* ---------- PRESSE ---------- */}
+        {press.length > 0 && (
+          <section className="section paper paper--alt" id="presse">
+            <div className="container">
+              <header className="section-head">
+                <p className="eyebrow">{t.press.eyebrow}</p>
+                <h2 className="section-title">{t.press.title}</h2>
+                <p className="section-lead">{t.press.lead}</p>
+              </header>
+              <ul className="press">
+                {press.map((p) => (
+                  <li key={p.url} className="press-card">
+                    <p className="press-card__meta">
+                      <span className="press-card__type">{t.press.types[p.type]}</span>
+                      <span className="press-card__outlet">{p.outlet}</span>
+                      <time dateTime={p.date}>
+                        {formatDate(p.date, lang, { day: "numeric", month: "long", year: "numeric" })}
+                      </time>
+                    </p>
+                    {lang !== "de" && <p className="press-card__orig">{t.press.original}</p>}
+                    <h3 className="press-card__title" lang="de">
+                      «{p.title}»
+                    </h3>
+                    <p className="press-card__teaser">{p.teaser[lang]}</p>
+                    <p className="press-card__foot">
+                      <a href={p.url} className="press-card__link" target="_blank" rel="noopener noreferrer">
+                        {t.press.read} <Arrow className="btn__icon" />
+                      </a>
+                      {p.author && (
+                        <span className="press-card__author">
+                          {t.press.by} {p.author}
+                        </span>
+                      )}
+                      {p.paywall && <span className="press-card__paywall">{t.press.paywall}</span>}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <p className="menu-note">
+                <Mail className="menu-note__icon" />
+                <span>
+                  {t.press.contact} <a href={`mailto:${site.email}`}>{site.email}</a>
+                </span>
+              </p>
+            </div>
+          </section>
+        )}
+
         {/* ---------- KONTAKT ---------- */}
         <section className="section paper" id="kontakt">
           <div className="container">
@@ -698,6 +767,12 @@ export default function HomePage({ lang }: { lang: Locale }) {
               <a href={`mailto:${site.email}`}>{site.email}</a>
               <br />
               <a href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+              {press.length > 0 && (
+                <>
+                  <br />
+                  <a href="#presse">{t.footer.press}</a>
+                </>
+              )}
             </p>
             <ul className="footer__langs" aria-label={t.nav.language}>
               {languages.map((l) => (

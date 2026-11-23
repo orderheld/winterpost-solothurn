@@ -67,10 +67,10 @@ const fr: Dict = {
   ticker: [
     "Vin chaud",
     "Chocolat chaud",
-    "Pain raclette",
+    "Sandwich raclette",
     "Saucisse grillée",
     "Goulash de légumes",
-    "Punch",
+    "Bière de Noël",
     "Magie de Noël",
     "Alter Postplatz",
   ],
@@ -155,7 +155,7 @@ const fr: Dict = {
       {
         name: "Chocolat chaud",
         category: "Pour les gourmands",
-        text: "Chaud, crémeux et tout simplement irrésistible. Avec chantilly et copeaux de chocolat.",
+        text: "Chaud, crémeux et tout simplement irrésistible. Avec ou sans chantilly.",
         alt: "Chocolat chaud dans une tasse en cuivre avec chantilly et copeaux de chocolat",
       },
     ],
@@ -172,7 +172,7 @@ const fr: Dict = {
   events: {
     eyebrow: "Programme",
     title: "Événements & specials",
-    lead: "Musique live, soirées apéro, specials de l’Avent et Saint-Sylvestre : découvre ce qui se passe sur l’Alter Postplatz.",
+    lead: "Découvre ce qui se passe sur l’Alter Postplatz, de la visite du Saint-Nicolas à d’autres specials. De nouveaux événements s’ajoutent régulièrement.",
     emptyTitle: "Le programme arrive",
     emptyText: "Nous préparons les premiers événements. Repasse bientôt ou suis-nous sur Instagram pour être informé en premier.",
     time: "h",
@@ -211,7 +211,7 @@ const fr: Dict = {
     title: "Passe nous voir",
     season: "Saison",
     seasonValue: "27 novembre 2026 – 3 janvier 2027",
-    days: "Du lundi au dimanche",
+    days: "Tous les jours",
     daysValue: "11h00 – 22h00",
     location: "Lieu",
     hint: "Passe simplement, réchauffe-toi et profite.",
@@ -240,6 +240,17 @@ const fr: Dict = {
     text: "Derrière la Winter Post se trouve une équipe forte de dix ans de succès dans l’événementiel, des concerts aux concepts pop-up. Nous coordonnons gastronomie, artistes, infrastructure et technique avec une ambition claire : ne pas seulement répondre aux attentes, mais les dépasser. Avec la Winter Post, nous voulons enrichir la saison froide à Soleure.",
     quote: "De Soleure. Pour Soleure.",
   },
+  press: {
+    eyebrow: "Presse",
+    title: "La Winter Post dans les médias",
+    lead: "Ce que les journaux, la radio, la télévision et les médias en ligne disent de la Winter Post.",
+    types: { print: "Journal", online: "En ligne", radio: "Radio", tv: "TV" },
+    by: "par",
+    read: "Voir l’article",
+    paywall: "Abonnés",
+    original: "Titre original (en allemand)",
+    contact: "Demandes des médias et articles qui manquent ici :",
+  },
   contact: {
     eyebrow: "Contact",
     title: "Écris-nous quelques lignes",
@@ -260,6 +271,7 @@ const fr: Dict = {
     privacyText:
       "Ce site n’utilise ni cookies, ni services d’analyse ou de suivi, ni formulaire de contact. Les polices et les images sont servies directement par notre serveur. Lors de la consultation du site, notre hébergeur (Vercel) traite les données techniquement nécessaires, comme l’adresse IP, dans des fichiers journaux afin de livrer le site en toute sécurité. Si tu nous contactes par e-mail ou via Instagram, nous utilisons tes données uniquement pour répondre à ta demande.",
     emailLabel: "E-mail",
+    press: "Presse",
     credit: "Site web par",
   },
 };

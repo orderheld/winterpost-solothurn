@@ -2177,3 +2177,123 @@ body > .airmail-bar {
 .brand__text {
   white-space: nowrap;
 }
+
+/* ---------- Barrierefreiheit ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Presse ---------- */
+.press {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.4rem;
+}
+.press-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 1.9rem 1.6rem 1.5rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.press-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: var(--stripes);
+}
+.press-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.8rem;
+  margin: 0 0 0.9rem;
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+.press-card__type {
+  padding: 0.12rem 0.55rem;
+  border: 1.5px solid var(--red);
+  border-radius: 4px;
+  color: var(--red);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.press-card__outlet {
+  font-weight: 700;
+  color: var(--ink);
+}
+.press-card__orig {
+  margin: 0 0 0.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.press-card__title {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+.press-card__teaser {
+  margin: 0 0 1.2rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+.press-card__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1rem;
+  margin: auto 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px dashed rgb(43 33 25 / 0.25);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+.press-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--red);
+  text-decoration: none;
+}
+.press-card__link:hover,
+.press-card__link:focus-visible {
+  text-decoration: underline;
+}
+.press-card__link .btn__icon {
+  width: 1em;
+  height: 1em;
+}
+.press-card__paywall {
+  margin-left: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.menu-note a {
+  color: var(--red);
+}

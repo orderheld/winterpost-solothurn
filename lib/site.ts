@@ -20,6 +20,8 @@ export const site = {
   },
   mapsUrl:
     "https://maps.app.goo.gl/mMQRU4ai3iYrMD6s6",
+  // Koordinaten Alter Postplatz (aus dem Google-Maps-Link), für Google/Schema.org
+  geo: { lat: 47.2057849, lng: 7.5344938 },
   // Eröffnung: Freitag, 27. November 2026, 11:00 Uhr (Europe/Zurich, UTC+1)
   openingIso: "2026-11-27T11:00:00+01:00",
   // Letzter Betriebstag: Sonntag, 3. Januar 2027, Schluss 22:00 Uhr
@@ -103,3 +105,55 @@ export type SpecialHours = {
 };
 
 export const specialHours: SpecialHours[] = [];
+
+// ---------------------------------------------------------------------------
+// Medienberichte (Abschnitt "Presse"). Nur echte, geprüfte Berichte eintragen!
+// Neuer Bericht = ein Eintrag hier, neuester zuoberst.
+// type: "print" (Zeitung), "online", "radio" oder "tv".
+// title = Originaltitel des Mediums, teaser = eigene Kurzbeschreibung (4 Sprachen).
+// paywall: true, wenn der Artikel nur für Abonnenten ganz lesbar ist.
+// Solange die Liste leer ist, wird der Abschnitt nicht angezeigt.
+// ---------------------------------------------------------------------------
+export type PressItem = {
+  date: string;
+  outlet: string;
+  type: "print" | "online" | "radio" | "tv";
+  title: string;
+  author?: string;
+  url: string;
+  paywall?: boolean;
+  teaser: Localized;
+};
+
+export const press: PressItem[] = [
+  {
+    date: "2026-11-19",
+    outlet: "Solothurner Zeitung",
+    type: "print",
+    title: "Alpenland fällt in Solothurn aus – die Stadt schreibt Adventsangebote neu aus",
+    author: "Fabio Vonarburg",
+    url: "https://www.solothurnerzeitung.ch/solothurn/stadt-solothurn/solothurn-neues-adventsangebot-ersetzt-das-alpenland-ld.4268844",
+    paywall: true,
+    teaser: {
+      de: "Statt des Alpenlands auf dem Dornacherplatz gibt es diesen Winter die Winter Post auf dem Postplatz als neues Adventsangebot.",
+      fr: "Au lieu de l’Alpenland sur la Dornacherplatz, la Winter Post sur la Postplatz est cet hiver la nouvelle offre de l’Avent.",
+      it: "Al posto dell’Alpenland sulla Dornacherplatz, quest’inverno la Winter Post sulla Postplatz è la nuova offerta dell’Avvento.",
+      en: "Instead of the Alpenland on Dornacherplatz, this winter Winter Post on Postplatz is the new Advent offering.",
+    },
+  },
+  {
+    date: "2026-11-11",
+    outlet: "Solothurner Zeitung",
+    type: "print",
+    title: "Glühwein, Würste, Raclette-Sandwich: Das bietet die neue ‹Winter Post› in Solothurn",
+    author: "Christoph Reichmuth",
+    url: "https://www.solothurnerzeitung.ch/solothurn/stadt-solothurn/solothurn-erhaelt-winter-bar-auf-dem-postplatz-ld.4265539",
+    paywall: true,
+    teaser: {
+      de: "Die Solothurner Zeitung stellt die Winter Post vor: Holzhütten, Glühwein und Raclette-Sandwich als neuer Wintertreffpunkt in der Innenstadt.",
+      fr: "La Solothurner Zeitung présente la Winter Post : cabanes en bois, vin chaud et sandwich raclette, nouveau rendez-vous d’hiver au centre-ville.",
+      it: "La Solothurner Zeitung presenta la Winter Post: casette di legno, vin brulé e sandwich alla raclette, nuovo ritrovo invernale in centro.",
+      en: "The Solothurner Zeitung introduces Winter Post: wooden huts, mulled wine and raclette sandwiches as a new winter meeting place in the city centre.",
+    },
+  },
+];
