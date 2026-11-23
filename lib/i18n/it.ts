@@ -67,10 +67,10 @@ const it: Dict = {
   ticker: [
     "Vin brulé",
     "Cioccolata calda",
-    "Pane alla raclette",
+    "Sandwich alla raclette",
     "Salsiccia alla griglia",
     "Gulasch di verdure",
-    "Punch",
+    "Birra di Natale",
     "Magia di Natale",
     "Alter Postplatz",
   ],
@@ -155,7 +155,7 @@ const it: Dict = {
       {
         name: "Cioccolata calda",
         category: "Per i golosi",
-        text: "Calda, cremosa e semplicemente irresistibile. Con panna montata e scaglie di cioccolato.",
+        text: "Calda, cremosa e semplicemente irresistibile. Con o senza panna montata.",
         alt: "Cioccolata calda in una tazza di rame con panna montata e scaglie di cioccolato",
       },
     ],
@@ -172,7 +172,7 @@ const it: Dict = {
   events: {
     eyebrow: "Programma",
     title: "Eventi & special",
-    lead: "Musica dal vivo, serate aperitivo, special d’Avvento e San Silvestro: qui trovi cosa succede sull’Alter Postplatz.",
+    lead: "Qui trovi cosa succede sull’Alter Postplatz, dalla visita di San Nicolao ad altri special. Nuovi eventi si aggiungono di continuo.",
     emptyTitle: "Il programma è in arrivo",
     emptyText: "Stiamo preparando i primi eventi. Torna presto o seguici su Instagram per saperlo per primo.",
     time: "",
@@ -211,7 +211,7 @@ const it: Dict = {
     title: "Passa a trovarci",
     season: "Stagione",
     seasonValue: "27 novembre 2026 – 3 gennaio 2027",
-    days: "Da lunedì a domenica",
+    days: "Tutti i giorni",
     daysValue: "11:00 – 22:00",
     location: "Luogo",
     hint: "Passa, scaldati e goditela.",
@@ -240,6 +240,17 @@ const it: Dict = {
     text: "Dietro la Winter Post c’è una squadra con dieci anni di successi nell’organizzazione di eventi, dai concerti ai concetti pop-up. Coordiniamo gastronomia, artisti, infrastruttura e tecnica con un obiettivo chiaro: non solo soddisfare le aspettative, ma superarle. Con la Winter Post vogliamo arricchire la stagione fredda a Soletta.",
     quote: "Da Soletta. Per Soletta.",
   },
+  press: {
+    eyebrow: "Stampa",
+    title: "La Winter Post nei media",
+    lead: "Cosa dicono giornali, radio, TV e media online della Winter Post.",
+    types: { print: "Giornale", online: "Online", radio: "Radio", tv: "TV" },
+    by: "di",
+    read: "Vai all’articolo",
+    paywall: "Abbonati",
+    original: "Titolo originale (in tedesco)",
+    contact: "Richieste dei media e articoli che mancano qui:",
+  },
   contact: {
     eyebrow: "Contatto",
     title: "Scrivici due righe",
@@ -260,6 +271,7 @@ const it: Dict = {
     privacyText:
       "Questo sito non utilizza cookie, servizi di analisi o tracciamento né moduli di contatto. Caratteri e immagini sono forniti direttamente dal nostro server. Durante la visita, il nostro provider di hosting (Vercel) elabora i dati tecnicamente necessari, come l’indirizzo IP, nei file di log del server per fornire il sito in modo sicuro. Se ci contatti via e-mail o Instagram, utilizziamo i tuoi dati esclusivamente per rispondere alla tua richiesta.",
     emailLabel: "E-mail",
+    press: "Stampa",
     credit: "Sito web di",
   },
 };

@@ -67,10 +67,10 @@ const en: Dict = {
   ticker: [
     "Mulled wine",
     "Hot chocolate",
-    "Raclette bread",
+    "Raclette sandwich",
     "Grilled sausage",
     "Vegetable goulash",
-    "Punch",
+    "Christmas beer",
     "Christmas magic",
     "Alter Postplatz",
   ],
@@ -155,7 +155,7 @@ const en: Dict = {
       {
         name: "Hot chocolate",
         category: "For the sweet tooth",
-        text: "Hot, creamy and simply irresistible. Topped with whipped cream and chocolate shavings.",
+        text: "Hot, creamy and simply irresistible. With or without whipped cream.",
         alt: "Hot chocolate in a copper mug with whipped cream and chocolate shavings",
       },
     ],
@@ -172,7 +172,7 @@ const en: Dict = {
   events: {
     eyebrow: "What's on",
     title: "Events & specials",
-    lead: "Live music, apéro evenings, Advent specials and New Year's Eve: here's what's happening on Alter Postplatz.",
+    lead: "Here's what's happening on Alter Postplatz, from St. Nicholas's visit to more specials. New events are added all the time.",
     emptyTitle: "The programme is coming",
     emptyText: "We're planning the first events right now. Check back soon or follow us on Instagram to be the first to know.",
     time: "",
@@ -211,7 +211,7 @@ const en: Dict = {
     title: "Come and see us",
     season: "Season",
     seasonValue: "27 November 2026 – 3 January 2027",
-    days: "Monday to Sunday",
+    days: "Every day",
     daysValue: "11 am – 10 pm",
     location: "Location",
     hint: "Just drop by, warm up and enjoy.",
@@ -240,6 +240,17 @@ const en: Dict = {
     text: "Behind Winter Post is a crew with a successful decade in event management, from music events to pop-up concepts. We coordinate food, artists, infrastructure and technology with one clear goal: not just to meet expectations, but to exceed them. With Winter Post, we want to make the cold season in Solothurn a little richer.",
     quote: "From Solothurn. For Solothurn.",
   },
+  press: {
+    eyebrow: "Press",
+    title: "Winter Post in the media",
+    lead: "What newspapers, radio, TV and online media are saying about Winter Post.",
+    types: { print: "Newspaper", online: "Online", radio: "Radio", tv: "TV" },
+    by: "by",
+    read: "Read the article",
+    paywall: "Subscribers",
+    original: "Original title (in German)",
+    contact: "Media enquiries and coverage we have missed:",
+  },
   contact: {
     eyebrow: "Contact",
     title: "Drop us a line",
@@ -260,6 +271,7 @@ const en: Dict = {
     privacyText:
       "This website uses no cookies, no analytics or tracking services and no contact form. Fonts and images are delivered directly from our server. When you visit the site, our hosting provider (Vercel) processes technically necessary data such as your IP address in server log files to deliver the website securely. If you contact us by email or Instagram, we only use your details to reply to your enquiry.",
     emailLabel: "Email",
+    press: "Press",
     credit: "Website by",
   },
 };

@@ -9,6 +9,7 @@ const de = {
     ogLocale: "de_CH",
     keywords: [
       "Winter Post Solothurn",
+      "Winterpost Solothurn",
       "Glühwein Solothurn",
       "Wintertreffpunkt Solothurn",
       "Weihnachtsmarkt Solothurn",
@@ -66,10 +67,10 @@ const de = {
   ticker: [
     "Glühwein",
     "Heisse Schokolade",
-    "Raclettebrot",
+    "Raclette-Sandwich",
     "Grillwurst",
     "Gemüsegulasch",
-    "Punsch",
+    "Weihnachtsbier",
     "Weihnachtszauber",
     "Alter Postplatz",
   ],
@@ -154,7 +155,7 @@ const de = {
       {
         name: "Heisse Schokolade",
         category: "Für Naschkatzen",
-        text: "Heiss, cremig und einfach unwiderstehlich. Mit Rahmhaube und Schokospänen.",
+        text: "Heiss, cremig und einfach unwiderstehlich. Wahlweise mit Rahmhaube.",
         alt: "Heisse Schokolade im Kupferbecher mit Schlagrahm und Schokoladenspänen",
       },
     ],
@@ -171,7 +172,7 @@ const de = {
   events: {
     eyebrow: "Programm",
     title: "Events & Specials",
-    lead: "Live-Musik, Apéro-Abende, Adventsspecials und Silvester: Hier findest du, was auf dem Alten Postplatz los ist.",
+    lead: "Hier findest du, was auf dem Alten Postplatz los ist, vom Besuch des Samichlaus bis zu weiteren Specials. Neue Events kommen laufend dazu.",
     emptyTitle: "Das Programm folgt",
     emptyText: "Wir planen gerade die ersten Events. Schau bald wieder vorbei oder folge uns auf Instagram, dann bist du als Erstes informiert.",
     time: "Uhr",
@@ -210,7 +211,7 @@ const de = {
     title: "Komm vorbei",
     season: "Saison",
     seasonValue: "27. November 2026 – 3. Januar 2027",
-    days: "Montag bis Sonntag",
+    days: "Täglich",
     daysValue: "11:00 – 22:00 Uhr",
     location: "Standort",
     hint: "Einfach vorbeikommen, aufwärmen und geniessen.",
@@ -239,6 +240,17 @@ const de = {
     text: "Hinter der Winter Post steht eine Crew mit einem erfolgreichen Jahrzehnt im Eventmanagement, von Musikevents bis zu Pop-up-Konzepten. Wir koordinieren Gastronomie, Künstler, Infrastruktur und Technik und haben einen klaren Anspruch: Erwartungen nicht nur erfüllen, sondern übertreffen. Mit der Winter Post wollen wir die kalte Jahreszeit in Solothurn bereichern.",
     quote: "Aus Solothurn. Für Solothurn.",
   },
+  press: {
+    eyebrow: "Presse",
+    title: "Die Winter Post in den Medien",
+    lead: "Was Zeitungen, Radio, TV und Online-Medien über die Winter Post berichten.",
+    types: { print: "Zeitung", online: "Online", radio: "Radio", tv: "TV" },
+    by: "von",
+    read: "Bericht ansehen",
+    paywall: "Abo",
+    original: "Originaltitel",
+    contact: "Medienanfragen und Berichte, die hier noch fehlen:",
+  },
   contact: {
     eyebrow: "Kontakt",
     title: "Schreib uns ein paar Zeilen",
@@ -259,6 +271,7 @@ const de = {
     privacyText:
       "Diese Website verwendet keine Cookies, keine Analyse- oder Trackingdienste und kein Kontaktformular. Schriften und Bilder werden direkt von unserem Server ausgeliefert. Beim Aufruf der Seite verarbeitet unser Hosting-Anbieter (Vercel) technisch notwendige Daten wie die IP-Adresse in Server-Logfiles, um die Website sicher auszuliefern. Wenn du uns per E-Mail oder Instagram kontaktierst, verwenden wir deine Angaben nur zur Beantwortung deiner Anfrage.",
     emailLabel: "E-Mail",
+    press: "Presse",
     credit: "Website von",
   },
 };
