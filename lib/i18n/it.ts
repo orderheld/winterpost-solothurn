@@ -2,11 +2,11 @@ import type { Dict } from "./de";
 
 const it: Dict = {
   meta: {
-    title: "Winter Post Solothurn | Vin brulé e magia di Natale a Soletta",
+    title: "Winter Post Solothurn | Vin brulé, raclette e aperitivo a Soletta",
     description:
-      "Il tuo punto d’incontro invernale sull’Alter Postplatz a Soletta: vin brulé, raclette e cucina invernale. 27.11.2026 – 3.1.2027, tutti i giorni 11–22.",
+      "Vin brulé, salsicce alla griglia, raclette e aperitivo sull’Alter Postplatz: il tuo ritrovo invernale a Soletta nel periodo natalizio. 27.11.2026 – 3.1.2027, tutti i giorni 11–22.",
     shareDescription:
-      "Vin brulé, raclette e magia di Natale sull’Alter Postplatz a Soletta. 27.11.2026 – 3.1.2027, tutti i giorni 11–22. Ci vediamo lì!",
+      "Vin brulé, salsicce alla griglia, raclette e magia di Natale sull’Alter Postplatz a Soletta. 27.11.2026 – 3.1.2027, tutti i giorni 11–22. Ci vediamo lì!",
     ogAlt: "Winter Post Solothurn: il tuo ritrovo invernale dal 27.11.2026 al 3.1.2027, tutti i giorni 11–22 sull’Alter Postplatz",
     ogLocale: "it_CH",
     keywords: [
@@ -14,7 +14,9 @@ const it: Dict = {
       "Winter Post Solothurn",
       "vin brulé Soletta",
       "mercatino di Natale Soletta",
-      "pop-up invernale Soletta",
+      "Natale Soletta",
+      "Avvento Soletta",
+      "aperitivo Soletta",
       "raclette Soletta",
     ],
   },
@@ -42,7 +44,7 @@ const it: Dict = {
     lead: "Vin brulé, piaceri e magia di Natale: il tuo pop-up invernale nel cuore di Soletta. Passa a trovarci, scaldati e ritrova i tuoi amici.",
     stampSmall: "Dal",
     stampDate: "27 novembre 2026",
-    hours: "Tutti i giorni 11:00 – 22:00",
+    hours: "Tutti i giorni 11–22",
     until: "Fino al 3 gennaio 2027",
     ctaMenu: "Scopri il menu",
     ctaRoute: "Indicazioni",
@@ -125,14 +127,14 @@ const it: Dict = {
   },
   menu: {
     eyebrow: "La nostra offerta",
-    title: "Dalla cucina invernale",
-    lead: "Semplice, di qualità e adatta alla stagione fredda: una selezione compatta di piatti invernali, snack e specialità di stagione.",
+    title: "Vin brulé, salsicce e raclette",
+    lead: "Semplice, di qualità e adatta al periodo natalizio: vin brulé dal paiolo, salsicce alla griglia, sandwich alla raclette e un gulasch vegetariano. In più birra, vino e long drink per l’aperitivo.",
     items: [
       {
         name: "Salsicce alla griglia",
         category: "Dalla griglia",
         text: "Salsiccia di vitello o di cinghiale, appena grigliata, con pane e senape.",
-        alt: "Salsicce dorate sulla griglia",
+        alt: "Salsiccia di vitello e salsiccia di cinghiale dorate sulla griglia",
       },
       {
         name: "Gulasch di verdure rustico",
@@ -144,7 +146,7 @@ const it: Dict = {
         name: "Sandwich alla raclette",
         category: "Classico svizzero",
         text: "Pane croccante e formaggio da raclette fuso, con cetriolini e cipolline.",
-        alt: "Pane croccante con formaggio da raclette fuso e cetriolini",
+        alt: "Sandwich alla raclette: pane croccante con formaggio da raclette fuso e cetriolini",
       },
       {
         name: "Vin brulé",
@@ -178,8 +180,8 @@ const it: Dict = {
     time: "",
   },
   reservation: {
-    eyebrow: "Per gruppi",
-    title: "Prenota il tuo posto",
+    eyebrow: "Prenotazione",
+    title: "Aperitivo e cena di Natale in gruppo",
     lead: "Aperitivo aziendale, cena di Natale con il team o compleanno con gli amici: per i gruppi riserviamo volentieri uno spazio per te.",
     occasions: [
       {
@@ -212,7 +214,7 @@ const it: Dict = {
     season: "Stagione",
     seasonValue: "27 novembre 2026 – 3 gennaio 2027",
     days: "Tutti i giorni",
-    daysValue: "11:00 – 22:00",
+    daysValue: "11–22",
     location: "Luogo",
     hint: "Passa, scaldati e goditela.",
     stampAlt: "Francobollo con la cattedrale di Sant’Orso a Soletta",
@@ -239,6 +241,36 @@ const it: Dict = {
     title: "L’esperienza incontra la passione.",
     text: "Dietro la Winter Post c’è una squadra con dieci anni di successi nell’organizzazione di eventi, dai concerti ai concetti pop-up. Coordiniamo gastronomia, artisti, infrastruttura e tecnica con un obiettivo chiaro: non solo soddisfare le aspettative, ma superarle. Con la Winter Post vogliamo arricchire la stagione fredda a Soletta.",
     quote: "Da Soletta. Per Soletta.",
+  },
+  faq: {
+    eyebrow: "Buono a sapersi",
+    title: "Domande frequenti",
+    items: [
+      {
+        q: "Quando è aperta la Winter Post?",
+        a: "Dal 27 novembre 2026 al 3 gennaio 2027, tutti i giorni dalle 11 alle 22, anche nel fine settimana. Eventuali variazioni nei giorni festivi si trovano negli orari.",
+      },
+      {
+        q: "La Winter Post è un mercatino di Natale?",
+        a: "Non proprio: al posto delle bancarelle ci sono casette di legno con bar e cucina, una lounge e tanto spazio per fermarsi. Un ritrovo invernale per tutto l’Avvento, nel cuore di Soletta.",
+      },
+      {
+        q: "Cosa c’è da mangiare e da bere?",
+        a: "Salsiccia di vitello e di cinghiale alla griglia, sandwich alla raclette, cervelat da grigliare da te e un gulasch di verdure vegetariano. E poi vin brulé, cioccolata calda, caffè, tè, birra, vino e long drink.",
+      },
+      {
+        q: "Possiamo prenotare per un aperitivo aziendale?",
+        a: "Sì. Per un aperitivo aziendale, una cena di Natale con il team o una festa privata riserviamo volentieri uno spazio. Scrivici a kontakt@winterpost.ch con data, ora e numero di persone.",
+      },
+      {
+        q: "Dove si trova la Winter Post?",
+        a: "Sull’Alter Postplatz, 4500 Soletta. Con «Indicazioni» arrivi direttamente su Google Maps.",
+      },
+      {
+        q: "Perché c’è un deposito sui bicchieri?",
+        a: "Tutte le bevande sono servite in bicchieri riutilizzabili, per ridurre i rifiuti. Il deposito è di CHF 2 e ti viene restituito alla riconsegna del bicchiere.",
+      },
+    ],
   },
   press: {
     eyebrow: "Stampa",

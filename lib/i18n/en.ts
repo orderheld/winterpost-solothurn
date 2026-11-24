@@ -2,20 +2,23 @@ import type { Dict } from "./de";
 
 const en: Dict = {
   meta: {
-    title: "Winter Post Solothurn | Mulled wine & Christmas magic",
+    title: "Winter Post Solothurn | Mulled wine, raclette & apéro",
     description:
-      "Your winter meeting place on Alter Postplatz in Solothurn: mulled wine, raclette & winter food. 27 Nov 2026 – 3 Jan 2027, daily 11 am – 10 pm.",
+      "Mulled wine, bratwurst, raclette & apéro on Alter Postplatz: your winter meeting place in Solothurn over Christmas. 27 Nov 2026 – 3 Jan 2027, daily 11 am – 10 pm.",
     shareDescription:
-      "Mulled wine, raclette & Christmas magic on Alter Postplatz in Solothurn. 27 Nov 2026 – 3 Jan 2027, daily 11 am – 10 pm. See you there!",
+      "Mulled wine, bratwurst, raclette & Christmas magic on Alter Postplatz in Solothurn. 27 Nov 2026 – 3 Jan 2027, daily 11 am – 10 pm. See you there!",
     ogAlt: "Winter Post Solothurn: your winter meeting place from 27 Nov 2026 to 3 Jan 2027, daily 11 am – 10 pm on Alter Postplatz",
     ogLocale: "en_GB",
     keywords: [
       "Winter Post Solothurn",
       "mulled wine Solothurn",
       "Christmas market Solothurn",
-      "winter pop-up Solothurn",
-      "things to do Solothurn winter",
+      "Christmas Solothurn",
+      "Advent Solothurn",
+      "apéro Solothurn",
+      "bratwurst Solothurn",
       "raclette Solothurn",
+      "things to do Solothurn winter",
     ],
   },
   claim: "Your winter. Your meeting place.",
@@ -68,7 +71,7 @@ const en: Dict = {
     "Mulled wine",
     "Hot chocolate",
     "Raclette sandwich",
-    "Grilled sausage",
+    "Bratwurst",
     "Vegetable goulash",
     "Christmas beer",
     "Christmas magic",
@@ -125,14 +128,14 @@ const en: Dict = {
   },
   menu: {
     eyebrow: "What we serve",
-    title: "From the winter kitchen",
-    lead: "Simple, high quality and made for the cold season: a compact selection of winter dishes, snacks and seasonal specialities.",
+    title: "Mulled wine, bratwurst & raclette",
+    lead: "Simple, high quality and made for the festive season: mulled wine from the cauldron, sausages off the grill, raclette sandwiches and a vegetarian goulash. Plus beer, wine and long drinks for your apéro.",
     items: [
       {
         name: "Grilled sausages",
         category: "From the grill",
         text: "Veal or wild boar sausage, fresh off the grill, with bread and mustard.",
-        alt: "Golden brown sausages on the grill",
+        alt: "Veal bratwurst and wild boar sausage, golden brown on the grill",
       },
       {
         name: "Hearty vegetable goulash",
@@ -144,7 +147,7 @@ const en: Dict = {
         name: "Raclette sandwich",
         category: "Swiss classic",
         text: "Crispy bread and melted raclette cheese, with gherkins and silverskin onions.",
-        alt: "Crispy bread with melted raclette cheese and gherkins",
+        alt: "Raclette sandwich: crispy bread with melted raclette cheese and gherkins",
       },
       {
         name: "Mulled wine",
@@ -178,8 +181,8 @@ const en: Dict = {
     time: "",
   },
   reservation: {
-    eyebrow: "For groups",
-    title: "Book your spot",
+    eyebrow: "Booking",
+    title: "Apéros & Christmas get-togethers for groups",
     lead: "Company apéro, team Christmas dinner or a birthday with friends: for groups, we're happy to reserve an area for you.",
     occasions: [
       {
@@ -239,6 +242,36 @@ const en: Dict = {
     title: "Experience meets passion.",
     text: "Behind Winter Post is a crew with a successful decade in event management, from music events to pop-up concepts. We coordinate food, artists, infrastructure and technology with one clear goal: not just to meet expectations, but to exceed them. With Winter Post, we want to make the cold season in Solothurn a little richer.",
     quote: "From Solothurn. For Solothurn.",
+  },
+  faq: {
+    eyebrow: "Good to know",
+    title: "Frequently asked questions",
+    items: [
+      {
+        q: "When is Winter Post open?",
+        a: "From 27 November 2026 to 3 January 2027, daily from 11 am to 10 pm, weekends included. Any changes over the holidays are listed under opening hours.",
+      },
+      {
+        q: "Is Winter Post a Christmas market?",
+        a: "Not quite: instead of market stalls there are wooden huts with a bar and kitchen, a lounge and plenty of room to linger. A winter meeting place for the whole of Advent, right in Solothurn.",
+      },
+      {
+        q: "What is there to eat and drink?",
+        a: "Veal bratwurst and wild boar sausage off the grill, raclette sandwiches, cervelat to grill yourself and a vegetarian vegetable goulash. Plus mulled wine, hot chocolate, coffee, tea, beer, wine and long drinks.",
+      },
+      {
+        q: "Can we book for a company apéro?",
+        a: "Yes. For a company apéro, a team Christmas dinner or a private party, we're happy to reserve an area. Email us at kontakt@winterpost.ch with the date, time and number of people.",
+      },
+      {
+        q: "Where is Winter Post?",
+        a: "On Alter Postplatz, 4500 Solothurn. “Get directions” takes you straight to Google Maps.",
+      },
+      {
+        q: "Why is there a cup deposit?",
+        a: "All drinks come in reusable cups to cut down on waste. The deposit is CHF 2 and you get it back when you return the cup.",
+      },
+    ],
   },
   press: {
     eyebrow: "Press",
