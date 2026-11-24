@@ -39,7 +39,7 @@ export const food: MenuItem[] = [
     price: "8.50",
   },
   {
-    name: { de: "Gemüse-Gulasch", fr: "Goulash de légumes", it: "Gulasch di verdure", en: "Vegetable goulash" },
+    name: { de: "Gemüsegulasch", fr: "Goulash de légumes", it: "Gulasch di verdure", en: "Vegetable goulash" },
     detail: { de: "mit Brot", fr: "avec pain", it: "con pane", en: "with bread" },
     price: "12.50",
     veg: true,

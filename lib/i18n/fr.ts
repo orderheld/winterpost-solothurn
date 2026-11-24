@@ -2,11 +2,11 @@ import type { Dict } from "./de";
 
 const fr: Dict = {
   meta: {
-    title: "Winter Post Solothurn | Vin chaud & magie de Noël à Soleure",
+    title: "Winter Post Solothurn | Vin chaud, raclette & apéro à Soleure",
     description:
-      "Ton point de rencontre hivernal sur l’Alter Postplatz à Soleure : vin chaud, raclette & cuisine d’hiver. 27.11.2026 – 3.1.2027, tous les jours de 11h à 22h.",
+      "Vin chaud, saucisses grillées, raclette & apéro sur l’Alter Postplatz : ton rendez-vous d’hiver à Soleure pendant les fêtes. 27.11.2026 – 3.1.2027, tous les jours 11h–22h.",
     shareDescription:
-      "Vin chaud, raclette & magie de Noël sur l’Alter Postplatz à Soleure. 27.11.2026 – 3.1.2027, tous les jours de 11h à 22h. À bientôt !",
+      "Vin chaud, saucisses grillées, raclette & magie de Noël sur l’Alter Postplatz à Soleure. 27.11.2026 – 3.1.2027, tous les jours 11h–22h. À bientôt !",
     ogAlt: "Winter Post Solothurn : ton rendez-vous d’hiver du 27.11.2026 au 3.1.2027, tous les jours de 11h à 22h sur l’Alter Postplatz",
     ogLocale: "fr_CH",
     keywords: [
@@ -14,8 +14,11 @@ const fr: Dict = {
       "Winter Post Solothurn",
       "vin chaud Soleure",
       "marché de Noël Soleure",
-      "pop-up hivernal Soleure",
+      "Noël Soleure",
+      "Avent Soleure",
+      "apéro Soleure",
       "raclette Soleure",
+      "saucisse grillée Soleure",
     ],
   },
   claim: "Ton hiver. Ton rendez-vous.",
@@ -42,7 +45,7 @@ const fr: Dict = {
     lead: "Vin chaud, plaisirs & magie de Noël : ton pop-up d’hiver au cœur de Soleure. Passe nous voir, réchauffe-toi et retrouve tes amis.",
     stampSmall: "Dès le",
     stampDate: "27 novembre 2026",
-    hours: "Tous les jours 11h00 – 22h00",
+    hours: "Tous les jours 11h–22h",
     until: "Jusqu’au 3 janvier 2027",
     ctaMenu: "Voir la carte",
     ctaRoute: "Itinéraire",
@@ -125,14 +128,14 @@ const fr: Dict = {
   },
   menu: {
     eyebrow: "Notre offre",
-    title: "La cuisine d’hiver",
-    lead: "Simple, de qualité et de saison : une sélection compacte de plats d’hiver, de snacks et de spécialités saisonnières.",
+    title: "Vin chaud, saucisses & raclette",
+    lead: "Simple, de qualité et de saison : vin chaud du chaudron, saucisses du gril, sandwich raclette et un goulash végétarien. Avec bière, vin et long drinks pour l’apéro.",
     items: [
       {
         name: "Saucisses grillées",
         category: "Du gril",
         text: "Saucisse de veau ou de sanglier, tout droit du gril, avec pain et moutarde.",
-        alt: "Saucisses dorées sur le gril",
+        alt: "Saucisse de veau et saucisse de sanglier dorées sur le gril",
       },
       {
         name: "Goulash de légumes copieux",
@@ -144,7 +147,7 @@ const fr: Dict = {
         name: "Sandwich raclette",
         category: "Classique suisse",
         text: "Du pain croustillant et du fromage à raclette fondu, avec cornichons et petits oignons.",
-        alt: "Pain croustillant avec fromage à raclette fondu et cornichons",
+        alt: "Sandwich raclette : pain croustillant avec fromage à raclette fondu et cornichons",
       },
       {
         name: "Vin chaud",
@@ -178,8 +181,8 @@ const fr: Dict = {
     time: "h",
   },
   reservation: {
-    eyebrow: "Pour les groupes",
-    title: "Réserve ta place",
+    eyebrow: "Réservation",
+    title: "Apéro & repas de Noël en groupe",
     lead: "Apéro d’entreprise, repas de Noël avec l’équipe ou anniversaire entre amis : pour les groupes, nous réservons volontiers un espace pour toi.",
     occasions: [
       {
@@ -212,7 +215,7 @@ const fr: Dict = {
     season: "Saison",
     seasonValue: "27 novembre 2026 – 3 janvier 2027",
     days: "Tous les jours",
-    daysValue: "11h00 – 22h00",
+    daysValue: "11h–22h",
     location: "Lieu",
     hint: "Passe simplement, réchauffe-toi et profite.",
     stampAlt: "Timbre représentant la cathédrale Saint-Ours de Soleure",
@@ -239,6 +242,36 @@ const fr: Dict = {
     title: "L’expérience rencontre la passion.",
     text: "Derrière la Winter Post se trouve une équipe forte de dix ans de succès dans l’événementiel, des concerts aux concepts pop-up. Nous coordonnons gastronomie, artistes, infrastructure et technique avec une ambition claire : ne pas seulement répondre aux attentes, mais les dépasser. Avec la Winter Post, nous voulons enrichir la saison froide à Soleure.",
     quote: "De Soleure. Pour Soleure.",
+  },
+  faq: {
+    eyebrow: "Bon à savoir",
+    title: "Questions fréquentes",
+    items: [
+      {
+        q: "Quand la Winter Post est-elle ouverte ?",
+        a: "Du 27 novembre 2026 au 3 janvier 2027, tous les jours de 11h à 22h, week-end compris. Les éventuels changements pendant les fêtes figurent dans les horaires.",
+      },
+      {
+        q: "La Winter Post est-elle un marché de Noël ?",
+        a: "Pas tout à fait : au lieu de stands, il y a des chalets en bois avec bar et cuisine, un lounge et beaucoup de place pour s’attarder. Un rendez-vous d’hiver pour toute la période de l’Avent, au cœur de Soleure.",
+      },
+      {
+        q: "Qu’y a-t-il à manger et à boire ?",
+        a: "Saucisse de veau et saucisse de sanglier du gril, sandwich raclette, cervelas à griller soi-même et un goulash de légumes végétarien. Et aussi vin chaud, chocolat chaud, café, thé, bière, vin et long drinks.",
+      },
+      {
+        q: "Peut-on réserver pour un apéro d’entreprise ?",
+        a: "Oui. Pour un apéro d’entreprise, un repas de Noël d’équipe ou une fête privée, nous réservons volontiers un espace. Écris-nous à kontakt@winterpost.ch avec la date, l’heure et le nombre de personnes.",
+      },
+      {
+        q: "Où se trouve la Winter Post ?",
+        a: "Sur l’Alter Postplatz, 4500 Soleure. Le bouton « Itinéraire » t’amène directement sur Google Maps.",
+      },
+      {
+        q: "Pourquoi une consigne sur les gobelets ?",
+        a: "Toutes les boissons sont servies dans des gobelets réutilisables, pour moins de déchets. La consigne est de CHF 2 et t’est rendue au retour du gobelet.",
+      },
+    ],
   },
   press: {
     eyebrow: "Presse",

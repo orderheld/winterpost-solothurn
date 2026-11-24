@@ -1,21 +1,24 @@
 const de = {
   meta: {
-    title: "Winter Post Solothurn | Glühwein, Genuss & Weihnachtszauber",
+    title: "Winter Post Solothurn | Glühwein, Raclette & Apéro im Advent",
     description:
-      "Dein Winter-Treffpunkt auf dem Alten Postplatz in Solothurn: Glühwein, Raclette & Winterküche. 27.11.2026 – 3.1.2027, täglich 11–22 Uhr.",
+      "Glühwein, Bratwurst, Raclette & Apéro auf dem Alten Postplatz: dein Winter-Treffpunkt in Solothurn zur Weihnachtszeit. 27.11.2026 – 3.1.2027, täglich 11–22 Uhr.",
     shareDescription:
-      "Glühwein, Raclette & Weihnachtszauber auf dem Alten Postplatz. 27.11.2026 – 3.1.2027, täglich 11–22 Uhr. Wir sehen uns!",
+      "Glühwein, Bratwurst, Raclette & Weihnachtszauber auf dem Alten Postplatz in Solothurn. 27.11.2026 – 3.1.2027, täglich 11–22 Uhr. Wir sehen uns!",
     ogAlt: "Winter Post Solothurn: Dein Winter-Treffpunkt vom 27.11.2026 bis 3.1.2027, täglich 11–22 Uhr auf dem Alten Postplatz",
     ogLocale: "de_CH",
     keywords: [
       "Winter Post Solothurn",
       "Winterpost Solothurn",
       "Glühwein Solothurn",
-      "Wintertreffpunkt Solothurn",
       "Weihnachtsmarkt Solothurn",
-      "Winter Pop-up Solothurn",
-      "Alter Postplatz Solothurn",
+      "Weihnachten Solothurn",
+      "Advent Solothurn",
+      "Apéro Solothurn",
+      "Firmenapéro Solothurn",
+      "Bratwurst Solothurn",
       "Raclette Solothurn",
+      "Alter Postplatz Solothurn",
     ],
   },
   claim: "Dein Winter. Dein Treffpunkt.",
@@ -42,7 +45,7 @@ const de = {
     lead: "Glühwein, Genuss & Weihnachtszauber: Dein Winter-Pop-up im Herzen von Solothurn. Komm vorbei, wärm dich auf und triff deine Leute.",
     stampSmall: "Ab",
     stampDate: "27. November 2026",
-    hours: "Täglich 11:00 – 22:00 Uhr",
+    hours: "Täglich 11–22 Uhr",
     until: "Bis 3. Januar 2027",
     ctaMenu: "Zum Angebot",
     ctaRoute: "Route planen",
@@ -68,7 +71,7 @@ const de = {
     "Glühwein",
     "Heisse Schokolade",
     "Raclette-Sandwich",
-    "Grillwurst",
+    "Bratwurst",
     "Gemüsegulasch",
     "Weihnachtsbier",
     "Weihnachtszauber",
@@ -125,14 +128,14 @@ const de = {
   },
   menu: {
     eyebrow: "Unser Angebot",
-    title: "Aus der Winterküche",
-    lead: "Einfach, hochwertig und passend zur kalten Jahreszeit: eine kompakte Auswahl an Wintergerichten, Snacks und saisonalen Spezialitäten.",
+    title: "Glühwein, Bratwurst & Raclette",
+    lead: "Einfach, hochwertig und passend zur Weihnachtszeit: Glühwein aus dem Kessel, Würste vom Grill, Raclette-Sandwich und ein vegetarisches Gulasch. Dazu Bier, Wein und Longdrinks für den Apéro.",
     items: [
       {
         name: "Bratwurst & Wildschweinwurst",
         category: "Vom Grill",
         text: "Kalbsbratwurst oder Wildschweinwurst, frisch vom Grill, mit Brot und Senf.",
-        alt: "Goldbraune Würste auf dem Grillrost",
+        alt: "Bratwurst und Wildschweinwurst goldbraun auf dem Grill",
       },
       {
         name: "Herzhaftes Gemüsegulasch",
@@ -144,7 +147,7 @@ const de = {
         name: "Raclette-Sandwich",
         category: "Schweizer Klassiker",
         text: "Knuspriges Brot und geschmolzener Raclettekäse, dazu Gurke und Silberzwiebeln.",
-        alt: "Knuspriges Brot mit geschmolzenem Raclettekäse und Cornichons",
+        alt: "Raclette-Sandwich: knuspriges Brot mit geschmolzenem Raclettekäse und Cornichons",
       },
       {
         name: "Glühwein",
@@ -178,8 +181,8 @@ const de = {
     time: "Uhr",
   },
   reservation: {
-    eyebrow: "Für Gruppen",
-    title: "Reserviere deinen Platz",
+    eyebrow: "Reservation",
+    title: "Apéro & Weihnachtsessen für Gruppen",
     lead: "Firmen-Apéro, Weihnachtsessen mit dem Team oder Geburtstag mit Freunden: Für Gruppen reservieren wir gerne einen Bereich für dich.",
     occasions: [
       {
@@ -212,7 +215,7 @@ const de = {
     season: "Saison",
     seasonValue: "27. November 2026 – 3. Januar 2027",
     days: "Täglich",
-    daysValue: "11:00 – 22:00 Uhr",
+    daysValue: "11–22 Uhr",
     location: "Standort",
     hint: "Einfach vorbeikommen, aufwärmen und geniessen.",
     stampAlt: "Briefmarke mit der St.-Ursen-Kathedrale Solothurn",
@@ -239,6 +242,36 @@ const de = {
     title: "Erfahrung trifft Leidenschaft.",
     text: "Hinter der Winter Post steht eine Crew mit einem erfolgreichen Jahrzehnt im Eventmanagement, von Musikevents bis zu Pop-up-Konzepten. Wir koordinieren Gastronomie, Künstler, Infrastruktur und Technik und haben einen klaren Anspruch: Erwartungen nicht nur erfüllen, sondern übertreffen. Mit der Winter Post wollen wir die kalte Jahreszeit in Solothurn bereichern.",
     quote: "Aus Solothurn. Für Solothurn.",
+  },
+  faq: {
+    eyebrow: "Gut zu wissen",
+    title: "Häufige Fragen",
+    items: [
+      {
+        q: "Wann hat die Winter Post geöffnet?",
+        a: "Vom 27. November 2026 bis 3. Januar 2027, täglich von 11 bis 22 Uhr, auch am Wochenende. Abweichungen an Feiertagen findest du bei den Öffnungszeiten.",
+      },
+      {
+        q: "Ist die Winter Post ein Weihnachtsmarkt?",
+        a: "Nicht ganz: Statt Marktständen gibt es Holzhütten mit Bar und Küche, eine Lounge und viel Platz zum Verweilen. Ein Winter-Treffpunkt für die ganze Adventszeit, mitten in Solothurn.",
+      },
+      {
+        q: "Was gibt es zu essen und zu trinken?",
+        a: "Bratwurst und Wildschweinwurst vom Grill, Raclette-Sandwich, Cervelat zum Selbergrillieren und ein vegetarisches Gemüsegulasch. Dazu Glühwein, heisse Schokolade, Kaffee, Tee, Bier, Wein und Longdrinks.",
+      },
+      {
+        q: "Können wir für einen Firmen-Apéro reservieren?",
+        a: "Ja. Für Firmen-Apéros, Weihnachtsessen mit dem Team oder private Feiern reservieren wir gerne einen Bereich. Schreib uns eine E-Mail an kontakt@winterpost.ch mit Datum, Uhrzeit und Anzahl Personen.",
+      },
+      {
+        q: "Wo finde ich die Winter Post?",
+        a: "Auf dem Alten Postplatz in 4500 Solothurn. Über «Route planen» kommst du direkt zu Google Maps.",
+      },
+      {
+        q: "Warum gibt es ein Becherdepot?",
+        a: "Alle Getränke gibt es im Mehrwegbecher, damit weniger Abfall entsteht. Das Depot beträgt CHF 2 und du bekommst es bei der Rückgabe des Bechers zurück.",
+      },
+    ],
   },
   press: {
     eyebrow: "Presse",

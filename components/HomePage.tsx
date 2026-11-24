@@ -76,9 +76,27 @@ function JsonLd({ lang }: { lang: Locale }) {
         hasMap: site.mapsUrl,
         image: images,
         logo: `${site.url}/icon-512.png`,
-        servesCuisine: ["Glühwein", "Raclette", "Swiss winter food"],
+        servesCuisine: ["Glühwein", "Raclette", "Bratwurst", "Grill", "Schweizer Winterküche"],
         acceptsReservations: true,
-        hasMenu: `${url}#karte`,
+        hasMenu: {
+          "@type": "Menu",
+          url: `${url}#karte`,
+          inLanguage: localeInfo[lang].htmlLang,
+          hasMenuSection: [
+            { title: t.menu.foodTitle, items: food },
+            ...drinks.map((g) => ({ title: g.title[lang], items: g.items })),
+          ].map((section) => ({
+            "@type": "MenuSection",
+            name: section.title,
+            hasMenuItem: section.items.map((item) => ({
+              "@type": "MenuItem",
+              name: [tx(item.name, lang), item.size].filter(Boolean).join(" "),
+              ...(item.detail ? { description: tx(item.detail, lang) } : {}),
+              ...(item.veg ? { suitableForDiet: "https://schema.org/VegetarianDiet" } : {}),
+              offers: { "@type": "Offer", price: item.price, priceCurrency: "CHF" },
+            })),
+          })),
+        },
         priceRange: "CHF 3.50–14",
         currenciesAccepted: "CHF",
         sameAs: [site.instagram],
@@ -114,6 +132,16 @@ function JsonLd({ lang }: { lang: Locale }) {
             ...(h.opens && h.closes ? { opens: h.opens, closes: h.closes } : { opens: "00:00", closes: "00:00" }),
           })),
         ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        inLanguage: localeInfo[lang].htmlLang,
+        mainEntity: t.faq.items.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
       },
       {
         "@type": "Event",
@@ -648,6 +676,24 @@ export default function HomePage({ lang }: { lang: Locale }) {
             <h2 className="team__title">{t.team.title}</h2>
             <p className="team__text">{t.team.text}</p>
             <p className="team__quote">{t.team.quote}</p>
+          </div>
+        </section>
+
+        {/* ---------- FAQ ---------- */}
+        <section className="section paper" id="faq">
+          <div className="container faq">
+            <header className="section-head">
+              <p className="eyebrow">{t.faq.eyebrow}</p>
+              <h2 className="section-title">{t.faq.title}</h2>
+            </header>
+            <div className="faq__list">
+              {t.faq.items.map((f) => (
+                <details key={f.q} className="faq__item">
+                  <summary className="faq__q">{f.q}</summary>
+                  <p className="faq__a">{f.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
 
