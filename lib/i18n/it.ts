@@ -4,10 +4,10 @@ const it: Dict = {
   meta: {
     title: "Winter Post Solothurn | Vin brulé, raclette e aperitivo a Soletta",
     description:
-      "Vin brulé, salsicce alla griglia, raclette e aperitivo sull’Alter Postplatz: il tuo ritrovo invernale a Soletta nel periodo natalizio. 27.11.2026 – 3.1.2027, tutti i giorni 11–22.",
+      "Vin brulé, salsicce alla griglia, raclette e aperitivo sull’Alter Postplatz: il tuo ritrovo invernale a Soletta nel periodo natalizio. Dal 27.11.2026, tutti i giorni fino al 3.1.2027.",
     shareDescription:
-      "Vin brulé, salsicce alla griglia, raclette e magia di Natale sull’Alter Postplatz a Soletta. 27.11.2026 – 3.1.2027, tutti i giorni 11–22. Ci vediamo lì!",
-    ogAlt: "Winter Post Solothurn: il tuo ritrovo invernale dal 27.11.2026 al 3.1.2027, tutti i giorni 11–22 sull’Alter Postplatz",
+      "Vin brulé, salsicce alla griglia, raclette e magia di Natale sull’Alter Postplatz a Soletta. Dal 27.11.2026, tutti i giorni fino al 3.1.2027. Ci vediamo lì!",
+    ogAlt: "Winter Post Solothurn: il tuo ritrovo invernale dal 27.11.2026, tutti i giorni fino al 3.1.2027, sull’Alter Postplatz",
     ogLocale: "it_CH",
     keywords: [
       "Winter Post Soletta",
@@ -29,7 +29,7 @@ const it: Dict = {
     angebot: "Menu",
     events: "Eventi",
     reservation: "Prenotazione",
-    besuch: "Orari",
+    besuch: "Visita",
     kontakt: "Contatto",
     cta: "Dal 27 novembre",
     open: "Apri il menu",
@@ -44,12 +44,11 @@ const it: Dict = {
     lead: "Vin brulé, piaceri e magia di Natale: il tuo pop-up invernale nel cuore di Soletta. Passa a trovarci, scaldati e ritrova i tuoi amici.",
     stampSmall: "Dal",
     stampDate: "27 novembre 2026",
-    hours: "Tutti i giorni 11–22",
-    until: "Fino al 3 gennaio 2027",
+    until: "Tutti i giorni fino al 3 gennaio 2027",
     ctaMenu: "Scopri il menu",
     ctaRoute: "Indicazioni",
     posterAlt:
-      "Locandina della Winter Post Solothurn: dal 27 novembre, il tuo ritrovo invernale con vin brulé e delizie, tutti i giorni dalle 11 alle 22, Postplatz Soletta",
+      "Locandina della Winter Post Solothurn: dal 27 novembre, il tuo ritrovo invernale con vin brulé e delizie, tutti i giorni fino al 3 gennaio 2027, Postplatz Soletta",
     ring: "Apertura · 27.11.2026 · Soletta ·",
     scroll: "Scorri verso il basso",
   },
@@ -61,9 +60,7 @@ const it: Dict = {
     hours: "ore",
     minutes: "min",
     seconds: "sec",
-    open: "Aperto ora, fino alle {time}",
-    closedToday: "Al momento chiuso. Ti aspettiamo di nuovo oggi dalle {time}.",
-    closedTomorrow: "Al momento chiuso. Ti aspettiamo di nuovo domani dalle {time}.",
+    season: "La Winter Post è arrivata! Tutti i giorni fino al 3 gennaio 2027 sull’Alter Postplatz.",
     over: "Grazie per una splendida stagione invernale! Al prossimo inverno.",
   },
   ticker: [
@@ -97,7 +94,7 @@ const it: Dict = {
       },
       {
         t: "Aperti tutti i giorni",
-        d: "Dal 27 novembre al 3 gennaio, tutti i giorni dalle 11 alle 22: per pranzo, per l’aperitivo dopo il lavoro o per un vin brulé a tarda sera.",
+        d: "Dal 27 novembre, tutti i giorni fino al 3 gennaio, nel cuore di Soletta: per un vin brulé con gli amici, con i colleghi o con la famiglia.",
       },
       {
         t: "Per tutti",
@@ -209,12 +206,10 @@ const it: Dict = {
     body: "Ciao Winter Post\n\nVorremmo prenotare:\n\nData:\nOra:\nNumero di persone:\nOccasione:\nNome:\n\nGrazie mille e cordiali saluti",
   },
   visit: {
-    eyebrow: "Orari",
+    eyebrow: "Visita",
     title: "Passa a trovarci",
     season: "Stagione",
     seasonValue: "27 novembre 2026 – 3 gennaio 2027",
-    days: "Tutti i giorni",
-    daysValue: "11–22",
     location: "Luogo",
     hint: "Passa, scaldati e goditela.",
     stampAlt: "Francobollo con la cattedrale di Sant’Orso a Soletta",
@@ -248,7 +243,7 @@ const it: Dict = {
     items: [
       {
         q: "Quando è aperta la Winter Post?",
-        a: "Dal 27 novembre 2026 al 3 gennaio 2027, tutti i giorni dalle 11 alle 22, anche nel fine settimana. Eventuali variazioni nei giorni festivi si trovano negli orari.",
+        a: "Dal 27 novembre 2026, tutti i giorni fino al 3 gennaio 2027, anche nel fine settimana, sull’Alter Postplatz a Soletta. Gli orari particolari, per esempio nei giorni festivi, si trovano sotto «Visita».",
       },
       {
         q: "La Winter Post è un mercatino di Natale?",
@@ -295,7 +290,7 @@ const it: Dict = {
     visit: "Visita",
     contact: "Contatto",
     season: "27.11.2026 – 3.1.2027",
-    hours: "tutti i giorni 11–22",
+    daily: "tutti i giorni fino al 3.1.2027",
     logoAlt: "Logo Winter Post Solothurn",
     legal: "Note legali e protezione dei dati",
     imprint: "Note legali",

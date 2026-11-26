@@ -9,21 +9,8 @@ type Labels = Dict["status"];
 type State =
   | { kind: "loading" }
   | { kind: "countdown"; d: number; h: number; m: number; s: number }
-  | { kind: "open"; until: string }
-  | { kind: "closed"; tomorrow: boolean }
+  | { kind: "season" }
   | { kind: "over" };
-
-function zurichHour(now: Date) {
-  const parts = new Intl.DateTimeFormat("de-CH", {
-    timeZone: "Europe/Zurich",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  }).formatToParts(now);
-  const h = Number(parts.find((p) => p.type === "hour")?.value ?? 0);
-  const m = Number(parts.find((p) => p.type === "minute")?.value ?? 0);
-  return h + m / 60;
-}
 
 function compute(now: Date): State {
   const opening = new Date(site.openingIso).getTime();
@@ -41,11 +28,7 @@ function compute(now: Date): State {
   if (now.getTime() >= new Date(site.closingIso).getTime()) {
     return { kind: "over" };
   }
-  const hour = zurichHour(now);
-  if (hour >= site.hours.open && hour < site.hours.close) {
-    return { kind: "open", until: `${site.hours.close}:00` };
-  }
-  return { kind: "closed", tomorrow: hour >= site.hours.open };
+  return { kind: "season" };
 }
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -60,11 +43,11 @@ export default function OpeningStatus({ labels }: { labels: Labels }) {
     return () => window.clearInterval(id);
   }, []);
 
-  if (state.kind === "open") {
+  if (state.kind === "season") {
     return (
       <p className="status status--open" role="status">
         <span className="status__dot" aria-hidden="true" />
-        {labels.open.replace("{time}", state.until)}
+        {labels.season}
       </p>
     );
   }
@@ -74,18 +57,6 @@ export default function OpeningStatus({ labels }: { labels: Labels }) {
       <p className="status" role="status">
         <span className="status__dot status__dot--off" aria-hidden="true" />
         {labels.over}
-      </p>
-    );
-  }
-
-  if (state.kind === "closed") {
-    return (
-      <p className="status" role="status">
-        <span className="status__dot status__dot--off" aria-hidden="true" />
-        {(state.tomorrow ? labels.closedTomorrow : labels.closedToday).replace(
-          "{time}",
-          `${site.hours.open}:00`,
-        )}
       </p>
     );
   }

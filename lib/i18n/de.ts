@@ -2,10 +2,10 @@ const de = {
   meta: {
     title: "Winter Post Solothurn | Glühwein, Raclette & Apéro im Advent",
     description:
-      "Glühwein, Bratwurst, Raclette & Apéro auf dem Alten Postplatz: dein Winter-Treffpunkt in Solothurn zur Weihnachtszeit. 27.11.2026 – 3.1.2027, täglich 11–22 Uhr.",
+      "Glühwein, Bratwurst, Raclette & Apéro auf dem Alten Postplatz: dein Winter-Treffpunkt in Solothurn zur Weihnachtszeit. Ab 27.11.2026 täglich bis 3.1.2027.",
     shareDescription:
-      "Glühwein, Bratwurst, Raclette & Weihnachtszauber auf dem Alten Postplatz in Solothurn. 27.11.2026 – 3.1.2027, täglich 11–22 Uhr. Wir sehen uns!",
-    ogAlt: "Winter Post Solothurn: Dein Winter-Treffpunkt vom 27.11.2026 bis 3.1.2027, täglich 11–22 Uhr auf dem Alten Postplatz",
+      "Glühwein, Bratwurst, Raclette & Weihnachtszauber auf dem Alten Postplatz in Solothurn. Ab 27.11.2026 täglich bis 3.1.2027. Wir sehen uns!",
+    ogAlt: "Winter Post Solothurn: Dein Winter-Treffpunkt ab 27.11.2026 täglich bis 3.1.2027 auf dem Alten Postplatz",
     ogLocale: "de_CH",
     keywords: [
       "Winter Post Solothurn",
@@ -30,7 +30,7 @@ const de = {
     angebot: "Angebot",
     events: "Events",
     reservation: "Reservation",
-    besuch: "Öffnungszeiten",
+    besuch: "Besuch",
     kontakt: "Kontakt",
     cta: "Ab 27. November",
     open: "Menü öffnen",
@@ -45,12 +45,11 @@ const de = {
     lead: "Glühwein, Genuss & Weihnachtszauber: Dein Winter-Pop-up im Herzen von Solothurn. Komm vorbei, wärm dich auf und triff deine Leute.",
     stampSmall: "Ab",
     stampDate: "27. November 2026",
-    hours: "Täglich 11–22 Uhr",
-    until: "Bis 3. Januar 2027",
+    until: "Täglich bis 3. Januar 2027",
     ctaMenu: "Zum Angebot",
     ctaRoute: "Route planen",
     posterAlt:
-      "Plakat der Winter Post Solothurn: Ab 27. November, Dein Winter Treffpunkt mit Glühwein und Genuss, täglich 11 bis 22 Uhr, Postplatz Solothurn",
+      "Plakat der Winter Post Solothurn: Ab 27. November, Dein Winter Treffpunkt mit Glühwein und Genuss, täglich bis 3. Januar 2027, Postplatz Solothurn",
     ring: "Eröffnung · 27.11.2026 · Solothurn ·",
     scroll: "Weiter nach unten",
   },
@@ -62,9 +61,7 @@ const de = {
     hours: "Std.",
     minutes: "Min.",
     seconds: "Sek.",
-    open: "Jetzt geöffnet, bis {time} Uhr",
-    closedToday: "Gerade geschlossen. Wir sind heute ab {time} Uhr wieder für dich da.",
-    closedTomorrow: "Gerade geschlossen. Wir sind morgen ab {time} Uhr wieder für dich da.",
+    season: "Die Winter Post ist da! Täglich bis 3. Januar 2027 auf dem Alten Postplatz.",
     over: "Danke für eine wunderbare Wintersaison! Bis zum nächsten Winter.",
   },
   ticker: [
@@ -98,7 +95,7 @@ const de = {
       },
       {
         t: "Jeden Tag für dich da",
-        d: "Vom 27. November bis 3. Januar, täglich von 11 bis 22 Uhr: zum Zmittag, zum Feierabend oder für einen späten Glühwein.",
+        d: "Ab 27. November täglich bis 3. Januar, mitten in Solothurn: für einen Glühwein mit Freunden, mit dem Team oder mit der Familie.",
       },
       {
         t: "Für alle",
@@ -210,12 +207,10 @@ const de = {
     body: "Hallo Winter Post\n\nGerne möchten wir reservieren:\n\nDatum:\nUhrzeit:\nAnzahl Personen:\nAnlass:\nName:\n\nVielen Dank und herzliche Grüsse",
   },
   visit: {
-    eyebrow: "Öffnungszeiten",
+    eyebrow: "Besuch",
     title: "Komm vorbei",
     season: "Saison",
     seasonValue: "27. November 2026 – 3. Januar 2027",
-    days: "Täglich",
-    daysValue: "11–22 Uhr",
     location: "Standort",
     hint: "Einfach vorbeikommen, aufwärmen und geniessen.",
     stampAlt: "Briefmarke mit der St.-Ursen-Kathedrale Solothurn",
@@ -249,7 +244,7 @@ const de = {
     items: [
       {
         q: "Wann hat die Winter Post geöffnet?",
-        a: "Vom 27. November 2026 bis 3. Januar 2027, täglich von 11 bis 22 Uhr, auch am Wochenende. Abweichungen an Feiertagen findest du bei den Öffnungszeiten.",
+        a: "Ab 27. November 2026 täglich bis 3. Januar 2027, auch am Wochenende, auf dem Alten Postplatz in Solothurn. Besondere Öffnungszeiten, zum Beispiel an Feiertagen, findest du unter „Besuch“.",
       },
       {
         q: "Ist die Winter Post ein Weihnachtsmarkt?",
@@ -296,7 +291,7 @@ const de = {
     visit: "Besuch",
     contact: "Kontakt",
     season: "27.11.2026 – 3.1.2027",
-    hours: "täglich 11–22 Uhr",
+    daily: "täglich bis 3.1.2027",
     logoAlt: "Winter Post Solothurn Logo",
     legal: "Impressum & Datenschutz",
     imprint: "Impressum",

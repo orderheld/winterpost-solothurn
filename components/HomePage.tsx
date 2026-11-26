@@ -116,22 +116,16 @@ function JsonLd({ lang }: { lang: Locale }) {
               })),
             }
           : {}),
-        openingHoursSpecification: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            opens: "11:00",
-            closes: "22:00",
-            validFrom: "2026-11-27",
-            validThrough: "2027-01-03",
-          },
-          ...specialHours.map((h) => ({
-            "@type": "OpeningHoursSpecification",
-            validFrom: h.date,
-            validThrough: h.date,
-            ...(h.opens && h.closes ? { opens: h.opens, closes: h.closes } : { opens: "00:00", closes: "00:00" }),
-          })),
-        ],
+        ...(specialHours.length
+          ? {
+              openingHoursSpecification: specialHours.map((h) => ({
+                "@type": "OpeningHoursSpecification",
+                validFrom: h.date,
+                validThrough: h.date,
+                ...(h.opens && h.closes ? { opens: h.opens, closes: h.closes } : { opens: "00:00", closes: "00:00" }),
+              })),
+            }
+          : {}),
       },
       {
         "@type": "FAQPage",
@@ -149,8 +143,8 @@ function JsonLd({ lang }: { lang: Locale }) {
         name: `${site.name}: ${t.claim}`,
         description: t.meta.description,
         inLanguage: localeInfo[lang].htmlLang,
-        startDate: "2026-11-27T11:00:00+01:00",
-        endDate: "2027-01-03T22:00:00+01:00",
+        startDate: site.openingDate,
+        endDate: site.closingDate,
         eventStatus: "https://schema.org/EventScheduled",
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
         isAccessibleForFree: true,
@@ -164,7 +158,7 @@ function JsonLd({ lang }: { lang: Locale }) {
                 "@type": "Event",
                 name: e.title[lang],
                 description: e.text[lang],
-                startDate: `${e.date}T${e.start ?? "11:00"}:00+01:00`,
+                startDate: e.start ? `${e.date}T${e.start}:00+01:00` : e.date,
                 ...(e.end ? { endDate: `${e.date}T${e.end}:00+01:00` } : {}),
                 eventStatus: "https://schema.org/EventScheduled",
                 eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
@@ -231,10 +225,6 @@ export default function HomePage({ lang }: { lang: Locale }) {
                   <span className="rubber-stamp__small">{t.hero.stampSmall}</span> {t.hero.stampDate}
                 </p>
                 <div className="hero__facts">
-                  <p className="hero__hours">
-                    <Clock className="hero__hours-icon" />
-                    {t.hero.hours}
-                  </p>
                   <p className="hero__hours">
                     <Calendar className="hero__hours-icon" />
                     {t.hero.until}
@@ -555,10 +545,6 @@ export default function HomePage({ lang }: { lang: Locale }) {
                   <dd>{t.visit.seasonValue}</dd>
                 </div>
                 <div className="timetable__row">
-                  <dt><Clock className="timetable__icon" /> {t.visit.days}</dt>
-                  <dd>{t.visit.daysValue}</dd>
-                </div>
-                <div className="timetable__row">
                   <dt><Pin className="timetable__icon" /> {t.visit.location}</dt>
                   <dd>{site.address.street}, {site.address.zip} {site.address.city}</dd>
                 </div>
@@ -805,7 +791,7 @@ export default function HomePage({ lang }: { lang: Locale }) {
           <div className="footer__col">
             <p className="footer__heading">{t.footer.visit}</p>
             <p>{site.address.street}<br />{site.address.zip} {site.address.city}</p>
-            <p>{t.footer.season}<br />{t.footer.hours}</p>
+            <p>{t.footer.season}<br />{t.footer.daily}</p>
           </div>
           <div className="footer__col">
             <p className="footer__heading">{t.footer.contact}</p>

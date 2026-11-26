@@ -4,10 +4,10 @@ const fr: Dict = {
   meta: {
     title: "Winter Post Solothurn | Vin chaud, raclette & apéro à Soleure",
     description:
-      "Vin chaud, saucisses grillées, raclette & apéro sur l’Alter Postplatz : ton rendez-vous d’hiver à Soleure pendant les fêtes. 27.11.2026 – 3.1.2027, tous les jours 11h–22h.",
+      "Vin chaud, saucisses grillées, raclette & apéro sur l’Alter Postplatz : ton rendez-vous d’hiver à Soleure pendant les fêtes. Dès le 27.11.2026, tous les jours jusqu’au 3.1.2027.",
     shareDescription:
-      "Vin chaud, saucisses grillées, raclette & magie de Noël sur l’Alter Postplatz à Soleure. 27.11.2026 – 3.1.2027, tous les jours 11h–22h. À bientôt !",
-    ogAlt: "Winter Post Solothurn : ton rendez-vous d’hiver du 27.11.2026 au 3.1.2027, tous les jours de 11h à 22h sur l’Alter Postplatz",
+      "Vin chaud, saucisses grillées, raclette & magie de Noël sur l’Alter Postplatz à Soleure. Dès le 27.11.2026, tous les jours jusqu’au 3.1.2027. À bientôt !",
+    ogAlt: "Winter Post Solothurn : ton rendez-vous d’hiver dès le 27.11.2026, tous les jours jusqu’au 3.1.2027 sur l’Alter Postplatz",
     ogLocale: "fr_CH",
     keywords: [
       "Winter Post Soleure",
@@ -30,7 +30,7 @@ const fr: Dict = {
     angebot: "À la carte",
     events: "Événements",
     reservation: "Réservation",
-    besuch: "Horaires",
+    besuch: "Visite",
     kontakt: "Contact",
     cta: "Dès le 27 novembre",
     open: "Ouvrir le menu",
@@ -45,12 +45,11 @@ const fr: Dict = {
     lead: "Vin chaud, plaisirs & magie de Noël : ton pop-up d’hiver au cœur de Soleure. Passe nous voir, réchauffe-toi et retrouve tes amis.",
     stampSmall: "Dès le",
     stampDate: "27 novembre 2026",
-    hours: "Tous les jours 11h–22h",
-    until: "Jusqu’au 3 janvier 2027",
+    until: "Tous les jours jusqu’au 3 janvier 2027",
     ctaMenu: "Voir la carte",
     ctaRoute: "Itinéraire",
     posterAlt:
-      "Affiche de la Winter Post Solothurn : dès le 27 novembre, ton rendez-vous d'hiver avec vin chaud et plaisirs, tous les jours de 11h à 22h, Postplatz Soleure",
+      "Affiche de la Winter Post Solothurn : dès le 27 novembre, ton rendez-vous d'hiver avec vin chaud et plaisirs, tous les jours jusqu’au 3 janvier 2027, Postplatz Soleure",
     ring: "Ouverture · 27.11.2026 · Soleure ·",
     scroll: "Défiler vers le bas",
   },
@@ -62,9 +61,7 @@ const fr: Dict = {
     hours: "h",
     minutes: "min",
     seconds: "s",
-    open: "Ouvert maintenant, jusqu’à {time}",
-    closedToday: "Fermé pour le moment. Nous t’accueillons à nouveau aujourd’hui dès {time}.",
-    closedTomorrow: "Fermé pour le moment. Nous t’accueillons à nouveau demain dès {time}.",
+    season: "La Winter Post est là ! Tous les jours jusqu’au 3 janvier 2027 sur l’Alter Postplatz.",
     over: "Merci pour cette magnifique saison d’hiver ! À l’hiver prochain.",
   },
   ticker: [
@@ -98,7 +95,7 @@ const fr: Dict = {
       },
       {
         t: "Ouvert tous les jours",
-        d: "Du 27 novembre au 3 janvier, tous les jours de 11h à 22h : pour le dîner, l’apéro après le travail ou un vin chaud en fin de soirée.",
+        d: "Dès le 27 novembre, tous les jours jusqu’au 3 janvier, au cœur de Soleure : pour un vin chaud entre amis, entre collègues ou en famille.",
       },
       {
         t: "Pour tout le monde",
@@ -210,12 +207,10 @@ const fr: Dict = {
     body: "Bonjour Winter Post\n\nNous aimerions réserver :\n\nDate :\nHeure :\nNombre de personnes :\nOccasion :\nNom :\n\nMerci beaucoup et meilleures salutations",
   },
   visit: {
-    eyebrow: "Horaires",
+    eyebrow: "Visite",
     title: "Passe nous voir",
     season: "Saison",
     seasonValue: "27 novembre 2026 – 3 janvier 2027",
-    days: "Tous les jours",
-    daysValue: "11h–22h",
     location: "Lieu",
     hint: "Passe simplement, réchauffe-toi et profite.",
     stampAlt: "Timbre représentant la cathédrale Saint-Ours de Soleure",
@@ -249,7 +244,7 @@ const fr: Dict = {
     items: [
       {
         q: "Quand la Winter Post est-elle ouverte ?",
-        a: "Du 27 novembre 2026 au 3 janvier 2027, tous les jours de 11h à 22h, week-end compris. Les éventuels changements pendant les fêtes figurent dans les horaires.",
+        a: "Dès le 27 novembre 2026, tous les jours jusqu’au 3 janvier 2027, week-end compris, sur l’Alter Postplatz à Soleure. Les horaires particuliers, par exemple les jours fériés, figurent sous « Visite ».",
       },
       {
         q: "La Winter Post est-elle un marché de Noël ?",
@@ -296,7 +291,7 @@ const fr: Dict = {
     visit: "Visite",
     contact: "Contact",
     season: "27.11.2026 – 3.1.2027",
-    hours: "tous les jours 11h–22h",
+    daily: "tous les jours jusqu’au 3.1.2027",
     logoAlt: "Logo Winter Post Solothurn",
     legal: "Mentions légales & protection des données",
     imprint: "Mentions légales",
