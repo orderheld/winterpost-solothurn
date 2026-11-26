@@ -26,8 +26,9 @@ export const site = {
   // Bewusst ohne tägliche Öffnungszeiten (gibt es nicht fix). Abweichungen: specialHours.
   openingDate: "2026-11-27",
   closingDate: "2027-01-03",
-  // Countdown/Status: Saisonbeginn und Tag nach dem letzten Betriebstag, jeweils 00:00
-  openingIso: "2026-11-27T00:00:00+01:00",
+  // Countdown/Status: Eröffnung am ersten Tag erst ab 17:00 Uhr (nur am 27.11., Ferhat 26.11.),
+  // Ende = Tag nach dem letzten Betriebstag, 00:00
+  openingIso: "2026-11-27T17:00:00+01:00",
   closingIso: "2027-01-04T00:00:00+01:00",
 } as const;
 
@@ -96,7 +97,7 @@ export const events: SiteEvent[] = [
 // Besondere Öffnungszeiten (Feiertage usw.). Beispiel:
 // { date: "2026-12-24", hours: { de: "11:00 – 17:00 Uhr", fr: "11h00 – 17h00", it: "11:00 – 17:00", en: "11 am – 5 pm" },
 //   opens: "11:00", closes: "17:00" },
-// Geschlossen: opens/closes weglassen und hours z. B. { de: "Geschlossen", … }.
+// Nur Beginn bekannt: closes weglassen. Geschlossen: opens/closes weglassen und hours z. B. { de: "Geschlossen", … }.
 // Solange die Liste leer ist, steht dort "Zurzeit gibt es keine Abweichungen".
 // ---------------------------------------------------------------------------
 export type SpecialHours = {
@@ -106,7 +107,14 @@ export type SpecialHours = {
   closes?: string;
 };
 
-export const specialHours: SpecialHours[] = [];
+export const specialHours: SpecialHours[] = [
+  // Eröffnungstag: erst ab 17 Uhr (gilt nur für diesen Tag)
+  {
+    date: "2026-11-27",
+    hours: { de: "Eröffnung ab 17 Uhr", fr: "Ouverture dès 17h", it: "Apertura dalle 17", en: "Opening from 5 pm" },
+    opens: "17:00",
+  },
+];
 
 // ---------------------------------------------------------------------------
 // Medienberichte (Abschnitt "Presse"). Nur echte, geprüfte Berichte eintragen!

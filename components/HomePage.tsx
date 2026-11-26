@@ -122,7 +122,9 @@ function JsonLd({ lang }: { lang: Locale }) {
                 "@type": "OpeningHoursSpecification",
                 validFrom: h.date,
                 validThrough: h.date,
-                ...(h.opens && h.closes ? { opens: h.opens, closes: h.closes } : { opens: "00:00", closes: "00:00" }),
+                ...(h.opens
+                  ? { opens: h.opens, ...(h.closes ? { closes: h.closes } : {}) }
+                  : { opens: "00:00", closes: "00:00" }),
               })),
             }
           : {}),
