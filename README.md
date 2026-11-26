@@ -21,13 +21,13 @@ Schriften werden über `next/font` selbst gehostet (keine Anfragen an Google bei
 
 ## Inhalte anpassen
 
-- **Alle Stammdaten** (E-Mail, Adresse, Öffnungszeiten, Eröffnungsdatum, Instagram): `lib/site.ts`
+- **Alle Stammdaten** (E-Mail, Adresse, Saisondaten, Instagram; bewusst keine täglichen Öffnungszeiten): `lib/site.ts`
 - **Angebot / Speisekarte**: Array `menu` in `lib/site.ts`
 - **Bilder**: `public/images/` (aktuell Platzhalter aus dem Instagram-Profil; durch echte Fotos ersetzen, gleiche Dateinamen genügen)
 - **Texte der Sektionen, Impressum, Datenschutz**: `app/page.tsx`
 - **Design (Farben, Schriften, Abstände)**: `app/globals.css` (CSS-Variablen oben)
 
-Der Countdown im Hero zählt bis zur Eröffnung (`openingIso` in `lib/site.ts`) und zeigt danach automatisch „Jetzt geöffnet“ bzw. die nächste Öffnungszeit (Zeitzone Europe/Zurich).
+Der Countdown im Hero zählt bis zur Eröffnung (`openingIso` in `lib/site.ts`) und zeigt danach während der Saison „Die Winter Post ist da!“ (Zeitzone Europe/Zurich).
 
 ## Projektdossier (PDF)
 

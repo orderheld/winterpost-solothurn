@@ -22,11 +22,13 @@ export const site = {
     "https://maps.app.goo.gl/mMQRU4ai3iYrMD6s6",
   // Koordinaten Alter Postplatz (aus dem Google-Maps-Link), für Google/Schema.org
   geo: { lat: 47.2057849, lng: 7.5344938 },
-  // Eröffnung: Freitag, 27. November 2026, 11:00 Uhr (Europe/Zurich, UTC+1)
-  openingIso: "2026-11-27T11:00:00+01:00",
-  // Letzter Betriebstag: Sonntag, 3. Januar 2027, Schluss 22:00 Uhr
-  closingIso: "2027-01-03T22:00:00+01:00",
-  hours: { open: 11, close: 22 },
+  // Saison: Freitag, 27. November 2026 bis und mit Sonntag, 3. Januar 2027 (Europe/Zurich).
+  // Bewusst ohne tägliche Öffnungszeiten (gibt es nicht fix). Abweichungen: specialHours.
+  openingDate: "2026-11-27",
+  closingDate: "2027-01-03",
+  // Countdown/Status: Saisonbeginn und Tag nach dem letzten Betriebstag, jeweils 00:00
+  openingIso: "2026-11-27T00:00:00+01:00",
+  closingIso: "2027-01-04T00:00:00+01:00",
 } as const;
 
 // Bilder des Angebots, Reihenfolge wie die Texte in lib/i18n (menu.items)

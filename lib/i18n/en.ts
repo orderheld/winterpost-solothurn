@@ -4,10 +4,10 @@ const en: Dict = {
   meta: {
     title: "Winter Post Solothurn | Mulled wine, raclette & apéro",
     description:
-      "Mulled wine, bratwurst, raclette & apéro on Alter Postplatz: your winter meeting place in Solothurn over Christmas. 27 Nov 2026 – 3 Jan 2027, daily 11 am – 10 pm.",
+      "Mulled wine, bratwurst, raclette & apéro on Alter Postplatz: your winter meeting place in Solothurn over Christmas. From 27 Nov 2026, daily until 3 Jan 2027.",
     shareDescription:
-      "Mulled wine, bratwurst, raclette & Christmas magic on Alter Postplatz in Solothurn. 27 Nov 2026 – 3 Jan 2027, daily 11 am – 10 pm. See you there!",
-    ogAlt: "Winter Post Solothurn: your winter meeting place from 27 Nov 2026 to 3 Jan 2027, daily 11 am – 10 pm on Alter Postplatz",
+      "Mulled wine, bratwurst, raclette & Christmas magic on Alter Postplatz in Solothurn. From 27 Nov 2026, daily until 3 Jan 2027. See you there!",
+    ogAlt: "Winter Post Solothurn: your winter meeting place from 27 Nov 2026, daily until 3 Jan 2027, on Alter Postplatz",
     ogLocale: "en_GB",
     keywords: [
       "Winter Post Solothurn",
@@ -30,7 +30,7 @@ const en: Dict = {
     angebot: "Food & drinks",
     events: "Events",
     reservation: "Reservations",
-    besuch: "Opening hours",
+    besuch: "Visit",
     kontakt: "Contact",
     cta: "From 27 November",
     open: "Open menu",
@@ -45,12 +45,11 @@ const en: Dict = {
     lead: "Mulled wine, good food & Christmas magic: your winter pop-up in the heart of Solothurn. Drop by, warm up and meet your people.",
     stampSmall: "From",
     stampDate: "27 November 2026",
-    hours: "Daily 11 am – 10 pm",
-    until: "Until 3 January 2027",
+    until: "Daily until 3 January 2027",
     ctaMenu: "See the menu",
     ctaRoute: "Get directions",
     posterAlt:
-      "Winter Post Solothurn poster: from 27 November, your winter meeting place with mulled wine and good food, daily from 11 am to 10 pm, Postplatz Solothurn",
+      "Winter Post Solothurn poster: from 27 November, your winter meeting place with mulled wine and good food, daily until 3 January 2027, Postplatz Solothurn",
     ring: "Opening · 27.11.2026 · Solothurn ·",
     scroll: "Scroll down",
   },
@@ -62,9 +61,7 @@ const en: Dict = {
     hours: "hrs",
     minutes: "min",
     seconds: "sec",
-    open: "Open now, until {time}",
-    closedToday: "Closed right now. We’re back today from {time}.",
-    closedTomorrow: "Closed right now. We’re back tomorrow from {time}.",
+    season: "Winter Post is here! Daily until 3 January 2027 on Alter Postplatz.",
     over: "Thank you for a wonderful winter season! See you next winter.",
   },
   ticker: [
@@ -98,7 +95,7 @@ const en: Dict = {
       },
       {
         t: "Open every day",
-        d: "From 27 November to 3 January, daily from 11 am to 10 pm: for lunch, after work or a late mulled wine.",
+        d: "From 27 November, daily until 3 January, right in the heart of Solothurn: for a mulled wine with friends, colleagues or family.",
       },
       {
         t: "For everyone",
@@ -210,12 +207,10 @@ const en: Dict = {
     body: "Hello Winter Post\n\nWe would like to make a reservation:\n\nDate:\nTime:\nNumber of people:\nOccasion:\nName:\n\nMany thanks and kind regards",
   },
   visit: {
-    eyebrow: "Opening hours",
+    eyebrow: "Visit",
     title: "Come and see us",
     season: "Season",
     seasonValue: "27 November 2026 – 3 January 2027",
-    days: "Every day",
-    daysValue: "11 am – 10 pm",
     location: "Location",
     hint: "Just drop by, warm up and enjoy.",
     stampAlt: "Stamp showing St. Ursus Cathedral in Solothurn",
@@ -249,7 +244,7 @@ const en: Dict = {
     items: [
       {
         q: "When is Winter Post open?",
-        a: "From 27 November 2026 to 3 January 2027, daily from 11 am to 10 pm, weekends included. Any changes over the holidays are listed under opening hours.",
+        a: "From 27 November 2026, daily until 3 January 2027, weekends included, on Alter Postplatz in Solothurn. Special opening hours, for example on public holidays, are listed under “Visit”.",
       },
       {
         q: "Is Winter Post a Christmas market?",
@@ -296,7 +291,7 @@ const en: Dict = {
     visit: "Visit",
     contact: "Contact",
     season: "27.11.2026 – 3.1.2027",
-    hours: "daily 11 am – 10 pm",
+    daily: "daily until 3.1.2027",
     logoAlt: "Winter Post Solothurn logo",
     legal: "Legal notice & privacy",
     imprint: "Legal notice",
